@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SNS運用サポート | あなたの想いを世界へ届ける</title>
+    <!-- Noto Sans JP のインポート（文字を細く見せるために 300 / 400 をメインに採用） -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
@@ -37,10 +38,57 @@
             margin-bottom: 1.5rem;
         }
 
+        /* グローバルナビゲーション（追加） */
+        .global-nav {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #eaeaea;
+            padding: 15px 24px;
+        }
+
+        .nav-container {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #2c3e50;
+            text-decoration: none;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 20px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #5a5a5a;
+            font-size: 0.85rem;
+            font-weight: 300;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #2c3e50;
+        }
+
         /* ヒーローセクション（極薄で落ち着いたグラデーション） */
         header {
             background: linear-gradient(135deg, #f5f7fa 0%, #eef1f5 100%);
-            padding: 100px 24px 80px 24px;
+            padding: 80px 24px 60px 24px;
             text-align: center;
             border-bottom: 1px solid #eaeaea;
         }
@@ -364,8 +412,15 @@
 
         /* モバイル対応 */
         @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .nav-menu {
+                gap: 15px;
+            }
             header {
-                padding: 80px 20px 60px 20px;
+                padding: 60px 20px 50px 20px;
             }
             header h1 {
                 font-size: 1.6rem;
@@ -382,6 +437,21 @@
 </head>
 <body>
 
+    <!-- グローバルナビゲーション -->
+    <nav class="global-nav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">SNS運用サポート</a>
+            <ul class="nav-menu">
+                <li><a href="#services">サービス</a></li>
+                <li><a href="#plans">料金プラン</a></li>
+                <li><a href="#results">実績</a></li>
+                <li><a href="#profile">プロフィール</a></li>
+                <li><a href="#contact">お問い合わせ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ヘッダー（ヒーローエリア） -->
     <header>
         <div class="hero-container">
             <h1>あなたの想いを、世界へ届ける。</h1>
@@ -394,6 +464,7 @@
         </div>
     </header>
 
+    <!-- 共感セクション -->
     <section class="empathy-section">
         <div class="empathy-container">
             <h2 class="section-title">こんなお悩みはありませんか？</h2>
@@ -421,6 +492,7 @@
         </div>
     </section>
 
+    <!-- サービス内容 -->
     <section id="services">
         <h2 class="section-title">サービス内容</h2>
         <div class="services-grid">
@@ -443,6 +515,7 @@
         </div>
     </section>
 
+    <!-- 料金プラン -->
     <section class="plans-section" id="plans">
         <div class="plans-container">
             <h2 class="section-title">料金プラン</h2>
@@ -482,6 +555,7 @@
         </div>
     </section>
 
+    <!-- 実績・お客様の声 -->
     <section id="results">
         <div class="results-container">
             <h2 class="section-title">実績・お客様の声</h2>
@@ -509,6 +583,7 @@
         </div>
     </section>
 
+    <!-- プロフィール（講師紹介） -->
     <section class="profile-section" id="profile">
         <div class="profile-container">
             <h2 class="section-title">About Me</h2>
@@ -522,6 +597,7 @@
         </div>
     </section>
 
+    <!-- お問い合わせ -->
     <section id="contact">
         <div class="contact-container">
             <h2 class="section-title">お問い合わせ</h2>
@@ -534,6 +610,7 @@
         </div>
     </section>
 
+    <!-- フッター -->
     <footer>
         <p>&copy; 2026 UnPLAVE. All rights reserved.</p>
     </footer>
