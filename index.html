@@ -1,601 +1,331 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UnPLAVE | 心の中に一生消えない灯りをともすSNS運用サポート</title>
-  <!-- Google Fontsから上品な英語フォントを読み込み -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
-  <style>
-    /* ピンク〜黄色の優しいグラデーションに美しく調和するパレット */
-    :root {
-      --primary-color: #333333;   /* 深みのある黒（引き締め・信頼感・プロフェッショナル） */
-      --accent-color: #FF5E7E;    /* 鮮やかなチェリーピンク（心に灯す光） */
-      --text-color: #333333;      /* 濃いチャコールグレー（読みやすさ重視） */
-      --bg-light: #FFF9F2;        /* 温かみのある極薄のオレンジベージュ */
-      --bg-white: #FFFFFF;        /* ピュアホワイト */
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNS運用サポート</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+        header {
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); /* 薄く落ち着いたグラデーション */
+            padding: 100px 20px; /* 余白を調整 */
+            text-align: center;
+        }
 
-    body {
-      font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
-      line-height: 1.9; /* 行間を広げて読みやすさと上品さをアップ */
-      color: var(--text-color);
-      background-color: var(--bg-white);
-    }
+        h1 {
+            font-size: 2.5em; /* フォントサイズを調整 */
+            margin-bottom: 20px;
+            font-weight: 500; /* 文字を少し細く */
+            color: #555;
+        }
 
-    /* ヘッダー・ナビゲーション */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 30px 8%; /* 横の余白を少し広げました */
-      background-color: var(--bg-white);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+        p.lead {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            font-weight: 300; /* 文字を細く */
+            color: #777;
+        }
 
-    .navbar-brand {
-      font-size: 1.6rem;
-      font-weight: bold;
-      color: var(--primary-color);
-      letter-spacing: 2px;
-    }
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #555; /* 落ち着いた色 */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+        }
 
-    .navbar-menu a {
-      text-decoration: none;
-      color: var(--text-color);
-      margin-left: 30px; /* メニュー間の余白を拡大 */
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
+        section {
+            padding: 60px 20px; /* セクション間の余白を調整 */
+            text-align: center;
+        }
 
-    .navbar-menu a:hover {
-      color: var(--accent-color);
-    }
+        h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            font-weight: 500;
+            color: #555;
+        }
 
-    /* メインビジュアル（ヒーローセクション）：プロ仕様の美グラデーション（白枠なし） */
-    .hero-section {
-      /* 高品質フリー画像素材（Unsplash：暖かな光・キャンドル）を背景に重ねた美しいグラデーション */
-      background: linear-gradient(135deg, rgba(255, 117, 143, 0.9) 0%, rgba(255, 126, 179, 0.9) 40%, rgba(254, 225, 64, 0.9) 100%), 
-                  url('https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
-      color: #333333;
-      text-align: center;
-      padding: 180px 20px; /* 上下余白をさらに広くし、ゆったりした印象に */
-      position: relative;
-      overflow: hidden;
-    }
+        /* 共感セクション */
+        .empathy {
+            background-color: #f9f9f9;
+        }
 
-    .hero-content-inner {
-      max-width: 800px;
-      margin: 0 auto;
-      /* 白枠（すりガラス効果）を完全に排除し、背景グラデーションを活かしています */
-    }
+        .empathy-message {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+            font-weight: 300;
+            color: #666;
+        }
 
-    .hero-section h1 {
-      font-family: 'Playfair Display', 'Georgia', 'Hiragino Mincho ProN', serif;
-      font-size: 4.5rem; /* サイズを少し大きくしてパキッと力強く */
-      font-weight: 700;
-      margin-bottom: 25px;
-      letter-spacing: 6px; /* 文字間隔をさらに広げて美しく */
-      color: #333333;
-    }
+        .empathy-message p {
+            margin-bottom: 15px;
+        }
 
-    .mission-text {
-      font-size: 1.6rem;
-      font-weight: bold;
-      margin-bottom: 35px;
-      color: #D82B5A; /* グラデーションの上でもパキッと目立つ、やや濃いめのチェリーピンク */
-      letter-spacing: 2px;
-    }
+        /* サービス内容 */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
 
-    .hero-sub {
-      font-size: 1.15rem;
-      max-width: 650px;
-      margin: 0 auto 50px auto;
-      color: #333333;
-      font-weight: 500;
-      line-height: 2;
-    }
+        .service-item {
+            border: 1px solid #eee;
+            padding: 30px;
+            border-radius: 5px;
+            background-color: #fff;
+        }
 
-    /* 進化したボタン（#333333の黒でパキッと引き締め） */
-    .btn-primary {
-      display: inline-block;
-      background-color: #333333;
-      color: #FFFFFF;
-      padding: 18px 55px; /* ボタン内の余白を広げてプレミアムに */
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 50px;
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
-      letter-spacing: 2px;
-      transition: all 0.3s ease;
-      box-shadow: 0 10px 25px rgba(51, 51, 51, 0.25);
-    }
+        .service-item h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            font-weight: 500;
+            color: #555;
+        }
 
-    .btn-primary:hover {
-      background-color: #111111;
-      transform: translateY(-3px);
-      box-shadow: 0 15px 30px rgba(51, 51, 51, 0.35);
-    }
+        .service-item p {
+            font-weight: 300;
+            color: #777;
+        }
 
-    /* セクション共通見出しスタイル */
-    section {
-      padding: 140px 20px !important; /* セクション全体の上下余白を「100px」から「140px」に増やしゆとりを演出 */
-    }
+        /* 料金プラン */
+        .plans {
+            background-color: #f9f9f9;
+        }
 
-    section h2 {
-      font-size: 2.4rem;
-      color: var(--primary-color);
-      margin-bottom: 25px;
-      text-align: center;
-      letter-spacing: 2px;
-    }
+        .plan-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
 
-    .section-subtitle {
-      font-size: 1.05rem;
-      color: #718096;
-      margin-bottom: 70px; /* 見出し下の余白を広げました */
-      text-align: center;
-    }
+        .plan-item {
+            background-color: #fff;
+            border: 1px solid #eee;
+            padding: 40px;
+            border-radius: 5px;
+        }
 
-    /* お悩みセクション */
-    .issues-section {
-      background-color: var(--bg-light);
-    }
+        .plan-item h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            font-weight: 500;
+            color: #555;
+        }
 
-    .issues-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 30px; /* カード同士の間隔を広げました */
-      max-width: 800px;
-      margin: 0 auto;
-    }
+        .plan-item .price {
+            font-size: 2em;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 20px;
+        }
 
-    .issue-item {
-      background: var(--bg-white);
-      padding: 35px 40px; /* 内側の余白を広く */
-      border-radius: 8px;
-      border-left: 6px solid var(--accent-color);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-      text-align: left;
-      font-size: 1.15rem;
-      font-weight: bold;
-      color: #333333;
-    }
+        .plan-item ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            font-weight: 300;
+            color: #777;
+        }
 
-    /* 想い（About）セクション */
-    .about-section {
-      background-color: var(--bg-white);
-    }
+        .plan-item li {
+            margin-bottom: 10px;
+        }
 
-    .about-content {
-      max-width: 850px;
-      margin: 0 auto;
-      text-align: left;
-      line-height: 2.2; /* 文章の行間をさらに広げて優雅に */
-      font-size: 1.15rem;
-    }
+        /* 実績 */
+        .results {
+            background-color: #fff;
+        }
 
-    .about-content p {
-      margin-bottom: 35px; /* 段落ごとの余白を拡大 */
-    }
+        .result-items {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+            font-weight: 300;
+            color: #666;
+        }
 
-    .about-highlight {
-      font-weight: bold;
-      color: var(--primary-color);
-      border-bottom: 2px solid var(--accent-color);
-      padding-bottom: 3px;
-    }
+        .result-items li {
+            margin-bottom: 15px;
+        }
 
-    /* 選ばれる理由（強み）セクション */
-    .features-section {
-      background-color: var(--bg-light);
-    }
+        /* 講師紹介 */
+        .about {
+            background-color: #f9f9f9;
+        }
 
-    .features-grid {
-      display: flex;
-      justify-content: center;
-      gap: 40px; /* 横の余白をさらに広く */
-      flex-wrap: wrap;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+            font-weight: 300;
+            color: #666;
+        }
 
-    .feature-card {
-      background-color: var(--bg-white);
-      border-radius: 12px;
-      padding: 50px 40px; /* 内側の余白を広げてプロらしく */
-      width: 360px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-      text-align: left;
-    }
+        .about-content p {
+            margin-bottom: 15px;
+        }
 
-    .feature-num {
-      font-size: 2.8rem;
-      font-weight: bold;
-      color: var(--accent-color);
-      margin-bottom: 20px;
-    }
+        /* 問い合わせ */
+        .contact {
+            background-color: #fff;
+        }
 
-    .feature-card h3 {
-      font-size: 1.4rem;
-      color: var(--primary-color);
-      margin-bottom: 20px;
-    }
-
-    /* サポートの流れ（Flow）セクション */
-    .flow-section {
-      background-color: var(--bg-white);
-    }
-
-    .flow-grid {
-      display: flex;
-      justify-content: center;
-      gap: 30px; /* ステップ間の隙間を拡張 */
-      flex-wrap: wrap;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .flow-card {
-      background-color: var(--bg-light);
-      border: 1px solid #E2E8F0;
-      border-radius: 12px;
-      padding: 40px 30px; /* 内側のゆとりをアップ */
-      width: 240px;
-      position: relative;
-      text-align: left;
-    }
-
-    .flow-step {
-      font-size: 0.95rem;
-      font-weight: bold;
-      color: var(--accent-color);
-      margin-bottom: 15px;
-    }
-
-    .flow-card h3 {
-      font-size: 1.2rem;
-      color: var(--primary-color);
-      margin-bottom: 15px;
-    }
-
-    .flow-card p {
-      font-size: 0.95rem;
-      color: #4A5568;
-    }
-
-    /* よくあるご質問（FAQ）セクション */
-    .faq-section {
-      background-color: var(--bg-light);
-    }
-
-    .faq-list {
-      max-width: 850px;
-      margin: 0 auto;
-      text-align: left;
-    }
-
-    .faq-item {
-      background-color: var(--bg-white);
-      padding: 30px 40px; /* 縦横の余白を大きく */
-      border-radius: 8px;
-      margin-bottom: 20px; /* 質問ごとのスキマを広く */
-      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-    }
-
-    .faq-question {
-      font-weight: bold;
-      color: var(--primary-color);
-      font-size: 1.15rem;
-      margin-bottom: 15px;
-      display: flex;
-      gap: 15px;
-    }
-
-    .faq-answer {
-      color: #4A5568;
-      font-size: 1.05rem;
-      padding-left: 28px;
-      border-left: 3px solid var(--accent-color);
-    }
-
-    /* サービス紹介セクション */
-    .services-section {
-      background-color: var(--bg-white);
-    }
-
-    .services-grid {
-      display: flex;
-      justify-content: center;
-      gap: 40px; /* カード間の余白を拡大 */
-      flex-wrap: wrap;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .service-card {
-      background-color: var(--bg-light);
-      border: 1px solid #E2E8F0;
-      border-radius: 12px;
-      padding: 50px 40px; /* 内側余白を広く */
-      width: 360px;
-      text-align: left;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-      transition: transform 0.3s ease;
-    }
-
-    .service-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .service-card h3 {
-      font-size: 1.5rem;
-      color: var(--primary-color);
-      margin-bottom: 20px;
-      border-bottom: 3px solid var(--accent-color);
-      padding-bottom: 15px;
-    }
-
-    .service-card .price {
-      font-size: 1.9rem;
-      color: var(--accent-color);
-      font-weight: bold;
-      margin-bottom: 25px;
-    }
-
-    .service-card ul {
-      list-style-type: none;
-      margin-top: 25px;
-    }
-
-    .service-card ul li {
-      margin-bottom: 16px; /* リスト項目の行間を広げました */
-      position: relative;
-      padding-left: 24px;
-    }
-
-    .service-card ul li::before {
-      content: "✓";
-      color: var(--accent-color);
-      position: absolute;
-      left: 0;
-      font-weight: bold;
-    }
-
-    /* コンタクトセクション */
-    .contact-section {
-      background-color: var(--bg-light);
-      text-align: center;
-    }
-
-    .contact-card {
-      max-width: 700px; /* 横幅を少し広く */
-      margin: 50px auto 0 auto;
-      background-color: var(--bg-white);
-      padding: 60px 50px; /* 余白を大きく取って上品に */
-      border-radius: 12px;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
-    }
-
-    .direct-email {
-      margin-top: 40px;
-    }
-
-    .direct-email a {
-      color: var(--accent-color);
-      font-weight: bold;
-      font-size: 1.4rem;
-      text-decoration: none;
-    }
-
-    .direct-email a:hover {
-      text-decoration: underline;
-    }
-
-    /* フッター */
-    footer {
-      background-color: var(--primary-color);
-      color: var(--bg-white);
-      text-align: center;
-      padding: 50px 20px;
-      font-size: 0.95rem;
-      letter-spacing: 1px;
-    }
-  </style>
+        /* フッター */
+        footer {
+            background-color: #555;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            font-weight: 300;
+        }
+    </style>
 </head>
 <body>
 
-  <!-- ナビゲーションバー -->
-  <nav class="navbar">
-    <div class="navbar-brand">UnPLAVE</div>
-    <div class="navbar-menu">
-      <a href="#issues">お悩み</a>
-      <a href="#about">想い</a>
-      <a href="#features">強み</a>
-      <a href="#flow">サポートの流れ</a>
-      <a href="#services">サービス</a>
-      <a href="#faq">よくある質問</a>
-      <a href="#contact">お問い合わせ</a>
-    </div>
-  </nav>
+    <header>
+        <h1>あなたの想いを、世界へ届ける。</h1>
+        <p class="lead">SNSで、心の中に一生消えない灯りをともす。<br>
+            あなたの作った価値が、誰かの人生を豊かにする。<br>
+            そのお手伝いをさせてください。</p>
+        <a href="#contact" class="cta-button">まずは無料で相談する</a>
+    </header>
 
-  <!-- メインビジュアル（白枠を撤去し、高画質な光のフリー背景画像を設定） -->
-  <header class="hero-section">
-    <div class="hero-content-inner">
-      <h1>UnPLAVE</h1>
-      <p class="mission-text">「心の中に一生消えない灯りをともす」</p>
-      <p class="hero-sub">自分の作った価値が、誰かの人生を豊かにする。<br>あなたの素晴らしい想いと価値を、SNSを通して必要としている人へ届けるお手伝いをします。</p>
-      <a href="#contact" class="btn-primary">無料相談はこちら</a>
-    </div>
-  </header>
+    <!-- 共感セクション -->
+    <section class="empathy">
+        <h2>こんなお悩みはありませんか？</h2>
+        <div class="empathy-message">
+            <p>「SNSを始めたいけれど、何から手をつければいいかわからない…」</p>
+            <p>「一生懸命投稿しているのに、なかなかフォロワーが増えない…」</p>
+            <p>「自分の想いや、商品の魅力がうまく伝わっているか不安…」</p>
+            <p>「日々の運用に追われて、本来の業務に集中できない…」</p>
+            <p>SNSは、今やビジネスや自己表現に欠かせないツールです。<br>
+                でも、ただ投稿すればいいというわけではありません。</p>
+            <p>大切なのは、あなた自身の「想い」を、本当に必要としている人に、<br>
+                届く言葉で、届く形で発信していくこと。</p>
+            <p>私たちは、あなたの心の中にある「灯り」を大切にし、<br>
+                それが多くの人の人生を豊かにする「光」となるよう、<br>
+                SNS運用という形でサポートします。</p>
+            <p>一人で悩まず、一緒に「あなたらしい」SNS運用を見つけませんか？</p>
+        </div>
+    </section>
 
-  <!-- お悩みセクション -->
-  <section id="issues" class="issues-section">
-    <h2>こんなお悩みはありませんか？</h2>
-    <p class="section-subtitle">多くの発信者や事業者様が、同じ壁にぶつかっています。</p>
-    <div class="issues-grid">
-      <div class="issue-item">SNS運用を始めたいけれど、何から手をつければいいかわからない</div>
-      <div class="issue-item">日々の業務が忙しくて、投稿作成や分析に時間が割けない</div>
-      <div class="issue-item">フォロワーは少しずつ増えているけれど、問い合わせに繋がらない</div>
-      <div class="issue-item">自分の届けたい「本当に大切な想い」を言葉やデザインで表現できない</div>
-    </div>
-  </section>
+    <!-- サービス内容 -->
+    <section class="services" id="services">
+        <h2>サービス内容</h2>
+        <div class="service-item">
+            <h3>戦略設計</h3>
+            <p>あなたの目標、ターゲット、強みを分析し、最適なSNS運用戦略を構築します。</p>
+        </div>
+        <div class="service-item">
+            <h3>投稿作成サポート</h3>
+            <p>魅力的な投稿文の作成、画像の選定、ハッシュタグの活用など、具体的な投稿作成をサポートします。</p>
+        </div>
+        <div class="service-item">
+            <h3>アカウント運用代行</h3>
+            <p>忙しいあなたに代わって、日々の投稿、いいね、コメント返しなど、アカウントの運用を代行します。</p>
+        </div>
+        <div class="service-item">
+            <h3>コンサルティング</h3>
+            <p>定期的なミーティングで運用の状況を分析し、改善案を提案します。疑問や悩みにもお答えします。</p>
+        </div>
+    </section>
 
-  <!-- 私たちの想い（About）セクション -->
-  <section id="about" class="about-section">
-    <h2>私たちの想い</h2>
-    <div class="about-content">
-      <p>SNSは、単に情報を拡散したり、数字を集めるだけの道具ではありません。</p>
-      <p>私たちは、あなたがこだわりを持って生み出した製品、真心込めて提供しているサービス、そしてその背景にある熱い情熱は、<span class="about-highlight">「誰かの人生を豊かにする価値」</span>だと信じています。</p>
-      <p>「UnPLAVE」は、ただの作業代行としてのSNS運用サポートではなく、あなたの事業のパートナーとして伴走します。あなたの中に眠る本質的な魅力を引き出し、それを美しく、鮮やかな発信に変えて、お客様の心へと届けます。</p>
-      <p>一度灯った温かい光は、ずっと消えることなく広がり続けます。あなたの価値で、誰かの毎日に小さな幸せの灯りをともしませんか？</p>
-    </div>
-  </section>
+    <!-- 料金プラン -->
+    <section class="plans" id="plans">
+        <h2>料金プラン</h2>
+        <div class="plan-items">
+            <div class="plan-item">
+                <h3>ライトプラン</h3>
+                <p class="price">29,800円 / 月</p>
+                <ul>
+                    <li>戦略設計サポート</li>
+                    <li>投稿作成アドバイス（週1回）</li>
+                    <li>月1回のコンサルティング</li>
+                    <li>メール相談無制限</li>
+                </ul>
+            </div>
+            <div class="plan-item">
+                <h3>スタンダードプラン</h3>
+                <p class="price">49,800円 / 月</p>
+                <ul>
+                    <li>戦略設計サポート</li>
+                    <li>投稿作成サポート（週3回まで）</li>
+                    <li>月2回のコンサルティング</li>
+                    <li>メール・チャット相談無制限</li>
+                </ul>
+            </div>
+            <div class="plan-item">
+                <h3>プロプラン</h3>
+                <p class="price">98,000円 / 月〜</p>
+                <ul>
+                    <li>戦略設計サポート</li>
+                    <li>アカウント完全運用代行</li>
+                    <li>月4回のコンサルティング（週1回）</li>
+                    <li>チャットワーク相談無制限</li>
+                    <li>※詳細はお問い合わせください</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-  <!-- 選ばれる理由（強み）セクション -->
-  <section id="features" class="features-section">
-    <h2>UnPLAVEが選ばれる3つの理由</h2>
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-num">01</div>
-        <h3>本質を汲み取るヒアリング</h3>
-        <p>ただマニュアル通りに発信するのではなく、あなたのビジネスへの想いや理念を深く丁寧に聞き出し、発信の軸を作ります。</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-num">02</div>
-        <h3>パキッと伝わる洗練されたデザイン</h3>
-        <p>競合に埋もれない、信頼感と華やかさを両立した視覚デザインで、ターゲットユーザーの目を留め、ファン化を促します。</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-num">03</div>
-        <h3>成果にコミットする伴走型サポート</h3>
-        <p>投稿して終わりではなく、反応 of 分析から、次のアクションプランの提示まで、一歩ずつ確実に進歩を感じられる丁寧なサポートを行います。</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- サポートの流れ（Flow）セクション -->
-  <section id="flow" class="flow-section">
-    <h2>サポートの流れ</h2>
-    <p class="section-subtitle">初めての方でも安心していただけるよう、ステップを明確にしています。</p>
-    <div class="flow-grid">
-      <div class="flow-card">
-        <div class="flow-step">STEP 01</div>
-        <h3>お問い合わせ</h3>
-        <p>まずはメールにてお気軽にご相談ください。2営業日以内に折り返しご連絡いたします。</p>
-      </div>
-      <div class="flow-card">
-        <div class="flow-step">STEP 02</div>
-        <h3>無料ヒアリング</h3>
-        <p>オンラインにて、現在のお悩みやあなたのビジネスに対する大切な想いをお聞きします。</p>
-      </div>
-      <div class="flow-card">
-        <div class="flow-step">STEP 03</div>
-        <h3>プランのご提案</h3>
-        <p>ヒアリングをもとに、あなたに最適なSNS運用のロードマップとプランをご提示します。</p>
-      </div>
-      <div class="flow-card">
-        <div class="flow-step">STEP 04</div>
-        <h3>サポート開始</h3>
-        <p>ご契約後、アカウント設計や投稿作成など、いよいよ共同でSNS運用がスタートします。</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- サービス紹介セクション -->
-  <section id="services" class="services-section">
-    <h2>Services</h2>
-    <div class="services-grid">
-      <div class="service-card">
-        <h3>ライトプラン</h3>
-        <p class="price">¥29,800 <span style="font-size: 0.9rem; font-weight: normal; color: var(--text-color);">/ 月</span></p>
-        <p>まずは気軽にSNS発信を始めてみたい方向けのプランです。</p>
-        <ul>
-          <li>月4回のフィード投稿作成</li>
-          <li>ハッシュタグ選定・リサーチ</li>
-          <li>月1回の進捗レポート送付</li>
+    <!-- 実績 -->
+    <section class="results">
+        <h2>実績・お客様の声</h2>
+        <ul class="result-items">
+            <li>A社様：フォロワー数 1,000人 ⇒ 5,000人（3ヶ月）</li>
+            <li>B様：投稿のエンゲージメント率 2% ⇒ 8%（2ヶ月）</li>
+            <li>C社様：SNS経由の問い合わせ数 0件 ⇒ 10件 / 月（半年）</li>
+            <li>「自分の想いが、ようやく言葉になって届いている気がします。」</li>
+            <li>「忙しくて手が回らなかったSNS運用を、安心して任せられました。」</li>
+            <li>「具体的なアドバイスのおかげで、迷わずに投稿できるようになりました。」</li>
         </ul>
-      </div>
+    </section>
 
-      <div class="service-card">
-        <h3>スタンダードプラン</h3>
-        <p class="price">¥59,800 <span style="font-size: 0.9rem; font-weight: normal; color: var(--text-color);">/ 月</span></p>
-        <p>認知を広げ、ファンとの強固なつながりを作りたい方向けの標準プランです。</p>
-        <ul>
-          <li>月8回のフィード・リール投稿作成</li>
-          <li>ストーリーズ毎日運用（土日祝除く）</li>
-          <li>競合リサーチ・アカウント設計</li>
-          <li>月1回のWebミーティング（相談会）</li>
-        </ul>
-      </div>
+    <!-- 講師紹介 -->
+    <section class="about">
+        <h2>講師紹介</h2>
+        <div class="about-content">
+            <p>初めまして。SNS運用サポート講師の[あなたの名前]です。</p>
+            <p>私は、長年SNS運用に携わり、多くの企業や個人のアカウント成長をサポートしてきました。</p>
+            <p>その中で感じたのは、SNSは単なる「フォロワー数を競うツール」ではないということです。</p>
+            <p>SNSは、あなたの「想い」や「価値」を世界へ届け、<br>
+                誰かの心を動かし、誰かの人生を豊かにできる、温かい場所であってほしい。</p>
+            <p>そう願っています。</p>
+            <p>私の知識と経験が、あなたの心の中にある「灯り」をより大きく輝かせる<br>
+                お手伝いになれば幸いです。</p>
+            <p>一緒に、あなたの「想い」を世界へ届けましょう。</p>
+        </div>
+    </section>
 
-      <div class="service-card">
-        <h3>フルサポートプラン</h3>
-        <p class="price">¥98,000 <span style="font-size: 0.9rem; font-weight: normal; color: var(--text-color);">/ 月</span></p>
-        <p>企画から分析、問い合わせ獲得まで、SNS運用を丸ごとトータルサポートします。</p>
-        <ul>
-          <li>投稿作成・運用代行（制限なし）</li>
-          <li>コメント・DM対応代行</li>
-          <li>詳細なデータ分析と改善提案</li>
-          <li>24時間チャットサポート</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    <!-- 問い合わせ -->
+    <section class="contact" id="contact">
+        <h2>お問い合わせ</h2>
+        <p>サービスについてのご質問、無料相談のご予約は、<br>
+            以下のフォームよりお気軽にお問い合わせください。</p>
+        <!-- ここに問い合わせフォームの埋め込みコードなどを記述 -->
+        <a href="#" class="cta-button">問い合わせフォームへ</a>
+    </section>
 
-  <!-- よくあるご質問（FAQ）セクション -->
-  <section id="faq" class="faq-section">
-    <h2>よくあるご質問</h2>
-    <p class="section-subtitle">事前によくいただく疑問や懸念をまとめております。</p>
-    <div class="faq-list">
-      <div class="faq-item">
-        <div class="faq-question"><span>Q.</span> まったくの初期アカウントですが、サポートをお願いできますか？</div>
-        <div class="faq-answer">はい、喜んでサポートいたします。アカウントの初期設定やコンセプト設計の段階から一緒に入らせていただきますのでご安心ください。</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question"><span>Q.</span> 途中でのプラン変更は可能ですか？</div>
-        <div class="faq-answer">はい、可能です。運用を進めていく中で「もっと投稿頻度を増やしたい」「内製化に向けてライトプランに切り替えたい」などのご要望に応じて柔軟に対応します。</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question"><span>Q.</span> 契約期間の縛りはありますか？</div>
-        <div class="faq-answer">効果を実感していただくために最低3ヶ月からのご契約を推奨しておりますが、ご事情に合わせてご相談を承ります。</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- コンタクトセクション -->
-  <section id="contact" class="contact-section">
-    <h2>Contact</h2>
-    <p>お仕事のご依頼やご相談は、以下よりお気軽にお問い合わせください。</p>
-    
-    <div class="contact-card">
-      <p style="margin-bottom: 25px; font-weight: bold; color: var(--primary-color);">
-        ご相談・お問い合わせは下記のボタンから直接メールにて承っております。
-      </p>
-      <a href="mailto:y.mrs.flower@gmail.com" class="btn-primary">メールを送る</a>
-      
-      <div class="direct-email">
-        <p>または、以下のメールアドレスまで直接ご連絡ください。</p>
-        <a href="mailto:y.mrs.flower@gmail.com">y.mrs.flower@gmail.com</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- フッター -->
-  <footer>
-    <p>&copy; 2026 UnPLAVE. All Rights Reserved.</p>
-  </footer>
+    <footer>
+        <p>&copy; 2023 あなたの屋号/お名前. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
