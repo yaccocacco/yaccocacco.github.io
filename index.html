@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>UnPlave | 心の中に一生消えない灯りをともすSNS運用サポート</title>
+  <!-- Google Fontsから上品な英語フォントを読み込み -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
   <style>
     /* ピンク〜黄色の優しいグラデーションに美しく調和するパレット */
     :root {
@@ -59,58 +61,75 @@
       color: var(--accent-color);
     }
 
-    /* メインビジュアル（ヒーローセクション）：ピンク〜黄色のキレイなグラデーション背景 */
+    /* メインビジュアル（ヒーローセクション）：プロ仕様の美グラデーション */
     .hero-section {
-      background: linear-gradient(135deg, rgba(255, 120, 150, 0.95) 0%, rgba(255, 210, 100, 0.95) 100%), 
-                  url('watermarked_img_5624461243844443141.png') no-repeat center center/cover;
-      color: #1A2B4C;
+      background: linear-gradient(135deg, #FF758F 0%, #FF7EB3 40%, #FEE140 100%);
+      color: #2D3748;
       text-align: center;
-      padding: 140px 20px;
+      padding: 160px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* すりガラス風の美しい白ベール */
+    .hero-content-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.45);
+      padding: 50px 40px;
+      border-radius: 24px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
     }
 
     .hero-section h1 {
-      font-size: 3.5rem;
-      margin-bottom: 20px;
-      letter-spacing: 2px;
-      color: #1A2B4C;
+      font-family: 'Playfair Display', 'Georgia', 'Hiragino Mincho ProN', serif;
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      letter-spacing: 4px;
+      color: #3F2B4F;
     }
 
     .mission-text {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       font-weight: bold;
-      margin-bottom: 20px;
-      color: #D82B5A;
-      letter-spacing: 1px;
+      margin-bottom: 25px;
+      color: #E03B6B;
+      letter-spacing: 2px;
     }
 
     .hero-sub {
-      font-size: 1.15rem;
-      max-width: 700px;
-      margin: 0 auto 35px auto;
-      color: #2D3748;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 40px auto;
+      color: #4A5568;
       font-weight: 500;
-      line-height: 1.8;
+      line-height: 1.9;
     }
 
-    /* ボタン（視認性を確保するためのパキッとした深いカラー） */
+    /* 進化したボタン */
     .btn-primary {
       display: inline-block;
-      background-color: #1A2B4C;
-      color: var(--bg-white);
-      padding: 14px 35px;
+      background-color: #3F2B4F;
+      color: #FFFFFF;
+      padding: 16px 45px;
       text-decoration: none;
       font-weight: bold;
-      border-radius: 5px;
+      border-radius: 50px;
       border: none;
       cursor: pointer;
       font-size: 1rem;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      box-shadow: 0 4px 15px rgba(26, 43, 76, 0.3);
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 25px rgba(63, 43, 79, 0.25);
     }
 
     .btn-primary:hover {
-      background-color: #0D172A;
-      transform: translateY(-2px);
+      background-color: #2D1E3A;
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(63, 43, 79, 0.35);
     }
 
     /* セクション共通見出しスタイル */
@@ -416,12 +435,14 @@
     </div>
   </nav>
 
-  <!-- メインビジュアル -->
+  <!-- メインビジュアル（プロ仕様にアップグレード） -->
   <header class="hero-section">
-    <h1>UnPlave</h1>
-    <p class="mission-text">「心の中に一生消えない灯りをともす」</p>
-    <p class="hero-sub">自分の作った価値が、誰かの人生を豊かにする。<br>あなたの素晴らしい想いと価値を、SNSを通して必要としている人へ届けるお手伝いをします。</p>
-    <a href="#contact" class="btn-primary">無料相談はこちら</a>
+    <div class="hero-content-inner">
+      <h1>UnPlave</h1>
+      <p class="mission-text">「心の中に一生消えない灯りをともす」</p>
+      <p class="hero-sub">自分の作った価値が、誰かの人生を豊かにする。<br>あなたの素晴らしい想いと価値を、SNSを通して必要としている人へ届けるお手伝いをします。</p>
+      <a href="#contact" class="btn-primary">無料相談はこちら</a>
+    </div>
   </header>
 
   <!-- お悩みセクション -->
@@ -429,7 +450,7 @@
     <h2>こんなお悩みはありませんか？</h2>
     <p class="section-subtitle">多くの発信者や事業者様が、同じ壁にぶつかっています。</p>
     <div class="issues-grid">
-      <div class="issue-item">SNS運用を始めたいけれど、何から手をつければいい忘れない</div>
+      <div class="issue-item">SNS運用を始めたいけれど、何から手をつければいいかわからない</div>
       <div class="issue-item">日々の業務が忙しくて、投稿作成や分析に時間が割けない</div>
       <div class="issue-item">フォロワーは少しずつ増えているけれど、問い合わせに繋がらない</div>
       <div class="issue-item">自分の届けたい「本当に大切な想い」を言葉やデザインで表現できない</div>
@@ -441,7 +462,7 @@
     <h2>私たちの想い</h2>
     <div class="about-content">
       <p>SNSは、単に情報を拡散したり、数字を集めるだけの道具ではありません。</p>
-      <p>私たちは、あなたがこだわりを持って生み出した製品、真心込めて提供しているサービス、およびその背景にある熱い情熱は、<span class="about-highlight">「誰かの人生を豊かにする価値」</span>だと信じています。</p>
+      <p>私たちは、あなたがこだわりを持って生み出した製品、真心込めて提供しているサービス、そしてその背景にある熱い情熱は、<span class="about-highlight">「誰かの人生を豊かにする価値」</span>だと信じています。</p>
       <p>「UnPlave」は、ただの作業代行としてのSNS運用サポートではなく、あなたの事業のパートナーとして伴走します。あなたの中に眠る本質的な魅力を引き出し、それを美しく、鮮やかな発信に変えて、お客様の心へと届けます。</p>
       <p>一度灯った温かい光は、ずっと消えることなく広がり続けます。あなたの価値で、誰かの毎日に小さな幸せの灯りをともしませんか？</p>
     </div>
