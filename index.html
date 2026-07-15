@@ -5,20 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>UnPlave | 心の中に一生消えない灯りをともすSNS運用サポート</title>
   <style>
-    /* パキッとした引き締まったカラーパレット */
     :root {
-      --primary-color: #1A2B4C;   /* 深いネイビー（信頼感・プロフェッショナル） */
-      --accent-color: #FF9F1C;    /* 鮮やかなオレンジゴールド（心に灯す光） */
-      --text-color: #2D3748;      /* 濃いチャコールグレー（読みやすさ重視） */
-      --bg-light: #F8F9FA;        /* すっきりした薄いグレー */
-      --bg-white: #FFFFFF;        /* ピュアホワイト */
+      --primary-color: #1A2B4C;
+      --accent-color: #FF9F1C;
+      --text-color: #2D3748;
+      --bg-light: #F8F9FA;
+      --bg-white: #FFFFFF;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
@@ -27,283 +22,127 @@
       background-color: var(--bg-white);
     }
 
-    /* ヘッダー・ナビゲーション */
+    /* ヘッダー */
     .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 5%;
-      background-color: var(--bg-white);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 5%; background-color: var(--bg-white);
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      position: sticky; top: 0; z-index: 1000;
     }
+    .navbar-brand { font-size: 1.5rem; font-weight: bold; color: var(--primary-color); }
+    .navbar-menu a { text-decoration: none; color: var(--text-color); margin-left: 20px; font-weight: 500; }
+    .navbar-menu a:hover { color: var(--accent-color); }
 
-    .navbar-brand {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: var(--primary-color);
-      letter-spacing: 1px;
-    }
-
-    .navbar-menu a {
-      text-decoration: none;
-      color: var(--text-color);
-      margin-left: 20px;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-
-    .navbar-menu a:hover {
-      color: var(--accent-color);
-    }
-
-    /* メインビジュアル */
+    /* ヒーローエリア */
     .hero-section {
       background: linear-gradient(135deg, #1A2B4C 0%, #0D172A 100%);
-      color: var(--bg-white);
-      text-align: center;
-      padding: 120px 20px;
+      color: var(--bg-white); text-align: center; padding: 100px 20px;
+    }
+    .hero-section h1 { font-size: 3rem; margin-bottom: 20px; letter-spacing: 2px; }
+    .mission-text { font-size: 1.5rem; font-weight: bold; margin-bottom: 10px; color: var(--accent-color); }
+    .hero-sub { font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px auto; opacity: 0.9; }
+
+    /* お悩みセクション */
+    .issues-section { padding: 80px 20px; background-color: var(--bg-light); text-align: center; }
+    .issues-section h2 { font-size: 2rem; color: var(--primary-color); margin-bottom: 40px; }
+    .issues-grid { display: flex; flex-direction: column; gap: 15px; max-width: 600px; margin: 0 auto; }
+    .issue-item { 
+      background: var(--bg-white); padding: 20px; border-radius: 8px;
+      border-left: 5px solid var(--accent-color); box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
 
-    .hero-section h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      letter-spacing: 2px;
-    }
-
-    .hero-section p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 0 auto 30px auto;
-      opacity: 0.9;
-    }
+    /* サービスセクション */
+    .services-section { padding: 80px 20px; text-align: center; }
+    .services-section h2 { font-size: 2rem; color: var(--primary-color); margin-bottom: 40px; }
+    .services-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; }
+    .service-card { background-color: var(--bg-light); border-radius: 8px; padding: 30px; width: 350px; text-align: left; }
+    .service-card h3 { color: var(--primary-color); margin-bottom: 15px; border-bottom: 2px solid var(--accent-color); padding-bottom: 8px; }
+    .price { font-size: 1.5rem; color: var(--accent-color); font-weight: bold; margin-bottom: 15px; }
 
     /* ボタン */
     .btn-primary {
-      display: inline-block;
-      background-color: var(--accent-color);
-      color: var(--bg-white);
-      padding: 12px 30px;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 5px;
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: background-color 0.3s ease, transform 0.2s ease;
+      display: inline-block; background-color: var(--accent-color); color: #fff;
+      padding: 12px 30px; text-decoration: none; font-weight: bold; border-radius: 5px;
+      transition: background-color 0.3s;
     }
+    .btn-primary:hover { background-color: #E08500; }
 
-    .btn-primary:hover {
-      background-color: #E08500;
-      transform: translateY(-2px);
-    }
-
-    /* サービス紹介セクション */
-    .services-section {
-      padding: 80px 20px;
-      background-color: var(--bg-white);
-      text-align: center;
-    }
-
-    .services-section h2 {
-      font-size: 2rem;
-      color: var(--primary-color);
-      margin-bottom: 40px;
-      position: relative;
-    }
-
-    .services-grid {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .service-card {
-      background-color: var(--bg-light);
-      border: 1px solid #E2E8F0;
-      border-radius: 8px;
-      padding: 30px;
-      width: 350px;
-      text-align: left;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-      transition: transform 0.3s ease;
-    }
-
-    .service-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .service-card h3 {
-      font-size: 1.3rem;
-      color: var(--primary-color);
-      margin-bottom: 15px;
-      border-bottom: 2px solid var(--accent-color);
-      padding-bottom: 8px;
-    }
-
-    .service-card .price {
-      font-size: 1.5rem;
-      color: var(--accent-color);
-      font-weight: bold;
-      margin-bottom: 15px;
-    }
-
-    .service-card ul {
-      list-style-type: none;
-      margin-top: 15px;
-    }
-
-    .service-card ul li {
-      margin-bottom: 10px;
-      position: relative;
-      padding-left: 20px;
-    }
-
-    .service-card ul li::before {
-      content: "✓";
-      color: var(--accent-color);
-      position: absolute;
-      left: 0;
-      font-weight: bold;
-    }
-
-    /* コンタクトセクション */
-    .contact-section {
-      padding: 80px 20px;
-      background-color: var(--bg-light);
-      text-align: center;
-    }
-
-    .contact-section h2 {
-      font-size: 2rem;
-      color: var(--primary-color);
-      margin-bottom: 20px;
-    }
-
-    .contact-section p {
-      margin-bottom: 40px;
-    }
-
-    .contact-card {
-      max-width: 600px;
-      margin: 0 auto;
-      background-color: var(--bg-white);
-      padding: 40px;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    }
-
-    .direct-email {
-      margin-top: 30px;
-    }
-
-    .direct-email a {
-      color: var(--accent-color);
-      font-weight: bold;
-      font-size: 1.2rem;
-      text-decoration: none;
-    }
-
-    .direct-email a:hover {
-      text-decoration: underline;
-    }
-
-    /* フッター */
-    footer {
-      background-color: var(--primary-color);
-      color: var(--bg-white);
-      text-align: center;
-      padding: 30px 20px;
-      font-size: 0.9rem;
-    }
+    /* コンタクト */
+    .contact-section { padding: 80px 20px; background-color: var(--bg-light); text-align: center; }
+    .contact-card { max-width: 600px; margin: 0 auto; background-color: var(--bg-white); padding: 40px; border-radius: 8px; }
+    
+    footer { background-color: var(--primary-color); color: var(--bg-white); text-align: center; padding: 30px; }
   </style>
 </head>
 <body>
 
-  <!-- ナビゲーションバー -->
   <nav class="navbar">
     <div class="navbar-brand">UnPlave</div>
     <div class="navbar-menu">
+      <a href="#issues">お悩み</a>
       <a href="#services">Services</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
 
-  <!-- メインビジュアル -->
   <header class="hero-section">
     <h1>UnPlave</h1>
-    <p>心の中に一生消えない灯りをともす、SNS運用サポート</p>
-    <a href="#contact" class="btn-primary">お問い合わせはこちら</a>
+    <p class="mission-text">「心の中に一生消えない灯りをともす」</p>
+    <p class="hero-sub">自分の作った価値が、誰かの人生を豊かにする。<br>その想いをSNSというツールで実現するサポートをいたします。</p>
+    <a href="#contact" class="btn-primary">相談してみる</a>
   </header>
 
-  <!-- サービス紹介セクション -->
+  <section id="issues" class="issues-section">
+    <h2>こんなお悩みはありませんか？</h2>
+    <div class="issues-grid">
+      <div class="issue-item">SNS運用を始めたいけれど、何から手をつければいいかわからない</div>
+      <div class="issue-item">忙しくて投稿のネタ作りや作成に時間が割けない</div>
+      <div class="issue-item">発信を続けているけれど、なかなか反応が得られない</div>
+      <div class="issue-item">自分の想いがうまく言葉や画像に乗せられない</div>
+    </div>
+  </section>
+
   <section id="services" class="services-section">
     <h2>Services</h2>
     <div class="services-grid">
-      <!-- ライトプラン -->
       <div class="service-card">
         <h3>ライトプラン</h3>
-        <p class="price">¥29,800 <span style="font-size: 0.9rem; font-weight: normal; color: var(--text-color);">/ 月</span></p>
-        <p>まずは気軽にSNS発信を始めてみたい方向けのプランです。</p>
+        <p class="price">¥29,800 <span style="font-size: 0.9rem; color: var(--text-color);">/ 月</span></p>
         <ul>
           <li>月4回のフィード投稿作成</li>
           <li>ハッシュタグ選定・リサーチ</li>
-          <li>月1回の進捗レポート送付</li>
+          <li>月1回の進捗レポート</li>
         </ul>
       </div>
-
-      <!-- スタンダードプラン -->
       <div class="service-card">
         <h3>スタンダードプラン</h3>
-        <p class="price">¥59,800 <span style="font-size: 0.9rem; font-weight: normal; color: var(--text-color);">/ 月</span></p>
-        <p>認知を広げ、ファンとの強固なつながりを作りたい方向けの標準プランです。</p>
+        <p class="price">¥59,800 <span style="font-size: 0.9rem; color: var(--text-color);">/ 月</span></p>
         <ul>
-          <li>月8回のフィード・リール投稿作成</li>
-          <li>ストーリーズ毎日運用（土日祝除く）</li>
+          <li>月8回のフィード・リール投稿</li>
+          <li>ストーリーズ毎日運用</li>
           <li>競合リサーチ・アカウント設計</li>
-          <li>月1回のWebミーティング（相談会）</li>
         </ul>
       </div>
-
-      <!-- プレミアムプラン -->
       <div class="service-card">
         <h3>フルサポートプラン</h3>
-        <p class="price">¥98,000 <span style="font-size: 0.9rem; font-weight: normal; color: var(--text-color);">/ 月</span></p>
-        <p>企画から分析、問い合わせ獲得まで、SNS運用を丸ごとトータルサポートします。</p>
+        <p class="price">¥98,000 <span style="font-size: 0.9rem; color: var(--text-color);">/ 月</span></p>
         <ul>
           <li>投稿作成・運用代行（制限なし）</li>
-          <li>コメント・DM対応代行</li>
-          <li>詳細なデータ分析と改善提案</li>
+          <li>DM・コメント対応代行</li>
           <li>24時間チャットサポート</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- コンタクトセクション -->
   <section id="contact" class="contact-section">
     <h2>Contact</h2>
-    <p>お仕事のご依頼やご相談は、以下よりお気軽にお問い合わせください。</p>
-    
     <div class="contact-card">
-      <p style="margin-bottom: 25px; font-weight: bold; color: var(--primary-color);">
-        ご相談・お問い合わせは下記のボタンから直接メールにて承っております。
-      </p>
-      <a href="mailto:y.mrs.flower@gmail.com" class="btn-primary">メールを送る</a>
-      
-      <div class="direct-email">
-        <p>または、以下のメールアドレスまで直接ご連絡ください。</p>
-        <a href="mailto:y.mrs.flower@gmail.com">y.mrs.flower@gmail.com</a>
-      </div>
+      <p style="margin-bottom: 25px;">ご相談・お問い合わせは下記よりお気軽にご連絡ください。</p>
+      <a href="mailto:y.mrs.flower@gmail.com" class="btn-primary">メールで問い合わせる</a>
     </div>
   </section>
 
-  <!-- フッター -->
   <footer>
     <p>&copy; 2026 UnPlave. All Rights Reserved.</p>
   </footer>
