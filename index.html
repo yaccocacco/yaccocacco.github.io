@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>UnPlave | 心の中に一生消えない灯りをともすSNS運用サポート</title>
   <style>
-    /* パキッとした引き締まったカラーパレットへの変更 */
+    /* パキッとした引き締まったカラーパレット */
     :root {
       --primary-color: #1A2B4C;   /* 深いネイビー（信頼感・プロフェッショナル） */
       --accent-color: #FF9F1C;    /* 鮮やかなオレンジゴールド（心に灯す光） */
@@ -59,12 +59,12 @@
       color: var(--accent-color);
     }
 
-    /* メインビジュアル（ヒーローセクション） */
+    /* メインビジュアル */
     .hero-section {
       background: linear-gradient(135deg, #1A2B4C 0%, #0D172A 100%);
       color: var(--bg-white);
       text-align: center;
-      padding: 100px 20px;
+      padding: 120px 20px;
     }
 
     .hero-section h1 {
@@ -80,7 +80,7 @@
       opacity: 0.9;
     }
 
-    /* ボタン（パキッと目立つデザイン） */
+    /* ボタン */
     .btn-primary {
       display: inline-block;
       background-color: var(--accent-color);
@@ -100,6 +100,78 @@
       transform: translateY(-2px);
     }
 
+    /* サービス紹介セクション */
+    .services-section {
+      padding: 80px 20px;
+      background-color: var(--bg-white);
+      text-align: center;
+    }
+
+    .services-section h2 {
+      font-size: 2rem;
+      color: var(--primary-color);
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .services-grid {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background-color: var(--bg-light);
+      border: 1px solid #E2E8F0;
+      border-radius: 8px;
+      padding: 30px;
+      width: 350px;
+      text-align: left;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .service-card h3 {
+      font-size: 1.3rem;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 8px;
+    }
+
+    .service-card .price {
+      font-size: 1.5rem;
+      color: var(--accent-color);
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .service-card ul {
+      list-style-type: none;
+      margin-top: 15px;
+    }
+
+    .service-card ul li {
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .service-card ul li::before {
+      content: "✓";
+      color: var(--accent-color);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
     /* コンタクトセクション */
     .contact-section {
       padding: 80px 20px;
@@ -117,45 +189,17 @@
       margin-bottom: 40px;
     }
 
-    .contact-form {
+    .contact-card {
       max-width: 600px;
       margin: 0 auto;
-      text-align: left;
       background-color: var(--bg-white);
       padding: 40px;
       border-radius: 8px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     }
 
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: bold;
-      color: var(--primary-color);
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 12px;
-      border: 2px solid #E2E8F0;
-      border-radius: 4px;
-      font-size: 1rem;
-      transition: border-color 0.3s ease;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--accent-color);
-    }
-
     .direct-email {
-      margin-top: 40px;
+      margin-top: 30px;
     }
 
     .direct-email a {
@@ -185,7 +229,6 @@
   <nav class="navbar">
     <div class="navbar-brand">UnPlave</div>
     <div class="navbar-menu">
-      <a href="#about">About</a>
       <a href="#services">Services</a>
       <a href="#contact">Contact</a>
     </div>
@@ -198,16 +241,59 @@
     <a href="#contact" class="btn-primary">お問い合わせはこちら</a>
   </header>
 
-  <!-- コンタクトセクション（送信先は直接メール起動に仮設定） -->
+  <!-- サービス紹介セクション -->
+  <section id="services" class="services-section">
+    <h2>Services</h2>
+    <div class="services-grid">
+      <!-- ライトプラン -->
+      <div class="service-card">
+        <h3>ライトプラン</h3>
+        <p class="price">¥29,800 <span style="font-size: 0.9rem; font-weight: normal; color: var(--text-color);">/ 月</span></p>
+        <p>まずは気軽にSNS発信を始めてみたい方向けのプランです。</p>
+        <ul>
+          <li>月4回のフィード投稿作成</li>
+          <li>ハッシュタグ選定・リサーチ</li>
+          <li>月1回の進捗レポート送付</li>
+        </ul>
+      </div>
+
+      <!-- スタンダードプラン -->
+      <div class="service-card">
+        <h3>スタンダードプラン</h3>
+        <p class="price">¥59,800 <span style="font-size: 0.9rem; font-weight: normal; color: var(--text-color);">/ 月</span></p>
+        <p>認知を広げ、ファンとの強固なつながりを作りたい方向けの標準プランです。</p>
+        <ul>
+          <li>月8回のフィード・リール投稿作成</li>
+          <li>ストーリーズ毎日運用（土日祝除く）</li>
+          <li>競合リサーチ・アカウント設計</li>
+          <li>月1回のWebミーティング（相談会）</li>
+        </ul>
+      </div>
+
+      <!-- プレミアムプラン -->
+      <div class="service-card">
+        <h3>フルサポートプラン</h3>
+        <p class="price">¥98,000 <span style="font-size: 0.9rem; font-weight: normal; color: var(--text-color);">/ 月</span></p>
+        <p>企画から分析、問い合わせ獲得まで、SNS運用を丸ごとトータルサポートします。</p>
+        <ul>
+          <li>投稿作成・運用代行（制限なし）</li>
+          <li>コメント・DM対応代行</li>
+          <li>詳細なデータ分析と改善提案</li>
+          <li>24時間チャットサポート</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- コンタクトセクション -->
   <section id="contact" class="contact-section">
     <h2>Contact</h2>
     <p>お仕事のご依頼やご相談は、以下よりお気軽にお問い合わせください。</p>
     
-    <div class="contact-form" style="text-align: center;">
-      <p style="margin-bottom: 20px; font-weight: bold; color: var(--primary-color);">
+    <div class="contact-card">
+      <p style="margin-bottom: 25px; font-weight: bold; color: var(--primary-color);">
         ご相談・お問い合わせは下記のボタンから直接メールにて承っております。
       </p>
-      <!-- メールリンクにy.mrs.flower@gmail.comを紐付け -->
       <a href="mailto:y.mrs.flower@gmail.com" class="btn-primary">メールを送る</a>
       
       <div class="direct-email">
