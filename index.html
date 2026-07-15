@@ -5,15 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>UnPlave | 心の中に一生消えない灯りをともすSNS運用サポート</title>
   <style>
+    /* パキッとした引き締まったカラーパレット */
     :root {
-      --primary-color: #1A2B4C;
-      --accent-color: #FF9F1C;
-      --text-color: #2D3748;
-      --bg-light: #F8F9FA;
-      --bg-white: #FFFFFF;
+      --primary-color: #1A2B4C;   /* 深いネイビー（信頼感・プロフェッショナル） */
+      --accent-color: #FF9F1C;    /* 鮮やかなオレンジゴールド（心に灯す光） */
+      --text-color: #2D3748;      /* 濃いチャコールグレー（読みやすさ重視） */
+      --bg-light: #F8F9FA;        /* すっきりした薄いグレー */
+      --bg-white: #FFFFFF;        /* ピュアホワイト */
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
@@ -22,127 +27,452 @@
       background-color: var(--bg-white);
     }
 
-    /* ヘッダー */
+    /* ヘッダー・ナビゲーション */
     .navbar {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 20px 5%; background-color: var(--bg-white);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 5%;
+      background-color: var(--bg-white);
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-      position: sticky; top: 0; z-index: 1000;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-    .navbar-brand { font-size: 1.5rem; font-weight: bold; color: var(--primary-color); }
-    .navbar-menu a { text-decoration: none; color: var(--text-color); margin-left: 20px; font-weight: 500; }
-    .navbar-menu a:hover { color: var(--accent-color); }
 
-    /* ヒーローエリア */
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary-color);
+      letter-spacing: 1px;
+    }
+
+    .navbar-menu a {
+      text-decoration: none;
+      color: var(--text-color);
+      margin-left: 20px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-menu a:hover {
+      color: var(--accent-color);
+    }
+
+    /* メインビジュアル（ヒーローセクション） */
     .hero-section {
-      background: linear-gradient(135deg, #1A2B4C 0%, #0D172A 100%);
-      color: var(--bg-white); text-align: center; padding: 100px 20px;
-    }
-    .hero-section h1 { font-size: 3rem; margin-bottom: 20px; letter-spacing: 2px; }
-    .mission-text { font-size: 1.5rem; font-weight: bold; margin-bottom: 10px; color: var(--accent-color); }
-    .hero-sub { font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px auto; opacity: 0.9; }
-
-    /* お悩みセクション */
-    .issues-section { padding: 80px 20px; background-color: var(--bg-light); text-align: center; }
-    .issues-section h2 { font-size: 2rem; color: var(--primary-color); margin-bottom: 40px; }
-    .issues-grid { display: flex; flex-direction: column; gap: 15px; max-width: 600px; margin: 0 auto; }
-    .issue-item { 
-      background: var(--bg-white); padding: 20px; border-radius: 8px;
-      border-left: 5px solid var(--accent-color); box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      background: linear-gradient(135deg, rgba(26, 43, 76, 0.9) 0%, rgba(13, 23, 42, 0.95) 100%), 
+                  url('watermarked_img_3214086498914084481.png') no-repeat center center/cover;
+      color: var(--bg-white);
+      text-align: center;
+      padding: 140px 20px;
     }
 
-    /* サービスセクション */
-    .services-section { padding: 80px 20px; text-align: center; }
-    .services-section h2 { font-size: 2rem; color: var(--primary-color); margin-bottom: 40px; }
-    .services-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; }
-    .service-card { background-color: var(--bg-light); border-radius: 8px; padding: 30px; width: 350px; text-align: left; }
-    .service-card h3 { color: var(--primary-color); margin-bottom: 15px; border-bottom: 2px solid var(--accent-color); padding-bottom: 8px; }
-    .price { font-size: 1.5rem; color: var(--accent-color); font-weight: bold; margin-bottom: 15px; }
+    .hero-section h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+    }
+
+    .mission-text {
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: var(--accent-color);
+      letter-spacing: 1px;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      max-width: 700px;
+      margin: 0 auto 35px auto;
+      opacity: 0.95;
+      line-height: 1.8;
+    }
 
     /* ボタン */
     .btn-primary {
-      display: inline-block; background-color: var(--accent-color); color: #fff;
-      padding: 12px 30px; text-decoration: none; font-weight: bold; border-radius: 5px;
-      transition: background-color 0.3s;
+      display: inline-block;
+      background-color: var(--accent-color);
+      color: var(--bg-white);
+      padding: 14px 35px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 15px rgba(255, 159, 28, 0.3);
     }
-    .btn-primary:hover { background-color: #E08500; }
 
-    /* コンタクト */
-    .contact-section { padding: 80px 20px; background-color: var(--bg-light); text-align: center; }
-    .contact-card { max-width: 600px; margin: 0 auto; background-color: var(--bg-white); padding: 40px; border-radius: 8px; }
-    
-    footer { background-color: var(--primary-color); color: var(--bg-white); text-align: center; padding: 30px; }
+    .btn-primary:hover {
+      background-color: #E08500;
+      transform: translateY(-2px);
+    }
+
+    /* 共感・お悩みセクション */
+    .issues-section {
+      padding: 100px 20px;
+      background-color: var(--bg-light);
+      text-align: center;
+    }
+
+    .issues-section h2 {
+      font-size: 2.2rem;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      color: #718096;
+      margin-bottom: 50px;
+    }
+
+    .issues-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .issue-item {
+      background: var(--bg-white);
+      padding: 25px;
+      border-radius: 8px;
+      border-left: 6px solid var(--accent-color);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+      text-align: left;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #4A5568;
+    }
+
+    /* 私たちの想い（About）セクション */
+    .about-section {
+      padding: 100px 20px;
+      background-color: var(--bg-white);
+      text-align: center;
+    }
+
+    .about-section h2 {
+      font-size: 2.2rem;
+      color: var(--primary-color);
+      margin-bottom: 40px;
+    }
+
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+      line-height: 2;
+      font-size: 1.1rem;
+    }
+
+    .about-content p {
+      margin-bottom: 25px;
+    }
+
+    .about-highlight {
+      font-weight: bold;
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 3px;
+    }
+
+    /* 選ばれる理由セクション */
+    .features-section {
+      padding: 100px 20px;
+      background-color: var(--bg-light);
+      text-align: center;
+    }
+
+    .features-section h2 {
+      font-size: 2.2rem;
+      color: var(--primary-color);
+      margin-bottom: 50px;
+    }
+
+    .features-grid {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      background-color: var(--bg-white);
+      border-radius: 8px;
+      padding: 40px 30px;
+      width: 350px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    }
+
+    .feature-num {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: var(--accent-color);
+      margin-bottom: 15px;
+    }
+
+    .feature-card h3 {
+      font-size: 1.3rem;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+
+    /* サービス紹介セクション */
+    .services-section {
+      padding: 100px 20px;
+      background-color: var(--bg-white);
+      text-align: center;
+    }
+
+    .services-section h2 {
+      font-size: 2.2rem;
+      color: var(--primary-color);
+      margin-bottom: 50px;
+    }
+
+    .services-grid {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background-color: var(--bg-light);
+      border: 1px solid #E2E8F0;
+      border-radius: 8px;
+      padding: 40px 30px;
+      width: 350px;
+      text-align: left;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .service-card h3 {
+      font-size: 1.4rem;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      border-bottom: 3px solid var(--accent-color);
+      padding-bottom: 10px;
+    }
+
+    .service-card .price {
+      font-size: 1.7rem;
+      color: var(--accent-color);
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .service-card ul {
+      list-style-type: none;
+      margin-top: 20px;
+    }
+
+    .service-card ul li {
+      margin-bottom: 12px;
+      position: relative;
+      padding-left: 24px;
+    }
+
+    .service-card ul li::before {
+      content: "✓";
+      color: var(--accent-color);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    /* コンタクトセクション */
+    .contact-section {
+      padding: 100px 20px;
+      background-color: var(--bg-light);
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      font-size: 2.2rem;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+    }
+
+    .contact-card {
+      max-width: 600px;
+      margin: 40px auto 0 auto;
+      background-color: var(--bg-white);
+      padding: 50px 40px;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .direct-email {
+      margin-top: 30px;
+    }
+
+    .direct-email a {
+      color: var(--accent-color);
+      font-weight: bold;
+      font-size: 1.3rem;
+      text-decoration: none;
+    }
+
+    .direct-email a:hover {
+      text-decoration: underline;
+    }
+
+    /* フッター */
+    footer {
+      background-color: var(--primary-color);
+      color: var(--bg-white);
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.95rem;
+    }
   </style>
 </head>
 <body>
 
+  <!-- ナビゲーションバー -->
   <nav class="navbar">
     <div class="navbar-brand">UnPlave</div>
     <div class="navbar-menu">
       <a href="#issues">お悩み</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
+      <a href="#about">想い</a>
+      <a href="#features">強み</a>
+      <a href="#services">サービス</a>
+      <a href="#contact">お問い合わせ</a>
     </div>
   </nav>
 
+  <!-- メインビジュアル -->
   <header class="hero-section">
     <h1>UnPlave</h1>
     <p class="mission-text">「心の中に一生消えない灯りをともす」</p>
-    <p class="hero-sub">自分の作った価値が、誰かの人生を豊かにする。<br>その想いをSNSというツールで実現するサポートをいたします。</p>
-    <a href="#contact" class="btn-primary">相談してみる</a>
+    <p class="hero-sub">自分の作った価値が、誰かの人生を豊かにする。<br>あなたの素晴らしい想いと価値を、SNSを通して必要としている人へ届けるお手伝いをします。</p>
+    <a href="#contact" class="btn-primary">無料相談はこちら</a>
   </header>
 
+  <!-- お悩みセクション -->
   <section id="issues" class="issues-section">
     <h2>こんなお悩みはありませんか？</h2>
+    <p class="section-subtitle">多くの発信者や事業者様が、同じ壁にぶつかっています。</p>
     <div class="issues-grid">
       <div class="issue-item">SNS運用を始めたいけれど、何から手をつければいいかわからない</div>
-      <div class="issue-item">忙しくて投稿のネタ作りや作成に時間が割けない</div>
-      <div class="issue-item">発信を続けているけれど、なかなか反応が得られない</div>
-      <div class="issue-item">自分の想いがうまく言葉や画像に乗せられない</div>
+      <div class="issue-item">日々の業務が忙しくて、投稿作成や分析に時間が割けない</div>
+      <div class="issue-item">フォロワーは少しずつ増えているけれど、問い合わせに繋がらない</div>
+      <div class="issue-item">自分の届けたい「本当に大切な想い」を言葉やデザインで表現できない</div>
     </div>
   </section>
 
+  <!-- 私たちの想い（About）セクション -->
+  <section id="about" class="about-section">
+    <h2>私たちの想い</h2>
+    <div class="about-content">
+      <p>SNSは、単に情報を拡散したり、数字を集めるだけの道具ではありません。</p>
+      <p>私たちは、あなたがこだわりを持って生み出した製品、真心込めて提供しているサービス、そしてその背景にある熱い情熱は、<span class="about-highlight">「誰かの人生を豊かにする価値」</span>だと信じています。</p>
+      <p>「UnPlave」は、ただの作業代行としてのSNS運用サポートではなく、あなたの事業のパートナーとして伴走します。あなたの中に眠る本質的な魅力を引き出し、それを美しく、パキッとした鮮やかな発信に変えて、お客様の心へと届けます。</p>
+      <p>一度灯った温かい光は、ずっと消えることなく広がり続けます。あなたの価値で、誰かの毎日に小さな幸せの灯りをともしませんか？</p>
+    </div>
+  </section>
+
+  <!-- 選ばれる理由（強み）セクション -->
+  <section id="features" class="features-section">
+    <h2>UnPlaveが選ばれる3つの理由</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-num">01</div>
+        <h3>本質を汲み取るヒアリング</h3>
+        <p>ただマニュアル通りに発信するのではなく、あなたのビジネスへの想いや理念を深く丁寧に聞き出し、発信の軸を作ります。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">02</div>
+        <h3>パキッと伝わる洗練されたデザイン</h3>
+        <p>競合に埋もれない、信頼感と華やかさを両立した視覚デザインで、ターゲットユーザーの目を留め、ファン化を促します。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">03</div>
+        <h3>成果にコミットする伴走型サポート</h3>
+        <p>投稿して終わりではなく、反応の分析から、次のアクションプランの提示まで、一歩ずつ確実に進歩を感じられる丁寧なサポートを行います。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- サービス紹介セクション -->
   <section id="services" class="services-section">
     <h2>Services</h2>
     <div class="services-grid">
+      <!-- ライトプラン -->
       <div class="service-card">
         <h3>ライトプラン</h3>
-        <p class="price">¥29,800 <span style="font-size: 0.9rem; color: var(--text-color);">/ 月</span></p>
+        <p class="price">¥29,800 <span style="font-size: 0.9rem; font-weight: normal; color: var(--text-color);">/ 月</span></p>
+        <p>まずは気軽にSNS発信を始めてみたい方向けのプランです。</p>
         <ul>
           <li>月4回のフィード投稿作成</li>
           <li>ハッシュタグ選定・リサーチ</li>
-          <li>月1回の進捗レポート</li>
+          <li>月1回の進捗レポート送付</li>
         </ul>
       </div>
+
+      <!-- スタンダードプラン -->
       <div class="service-card">
         <h3>スタンダードプラン</h3>
-        <p class="price">¥59,800 <span style="font-size: 0.9rem; color: var(--text-color);">/ 月</span></p>
+        <p class="price">¥59,800 <span style="font-size: 0.9rem; font-weight: normal; color: var(--text-color);">/ 月</span></p>
+        <p>認知を広げ、ファンとの強固なつながりを作りたい方向けの標準プランです。</p>
         <ul>
-          <li>月8回のフィード・リール投稿</li>
-          <li>ストーリーズ毎日運用</li>
+          <li>月8回のフィード・リール投稿作成</li>
+          <li>ストーリーズ毎日運用（土日祝除く）</li>
           <li>競合リサーチ・アカウント設計</li>
+          <li>月1回のWebミーティング（相談会）</li>
         </ul>
       </div>
+
+      <!-- プレミアムプラン -->
       <div class="service-card">
         <h3>フルサポートプラン</h3>
-        <p class="price">¥98,000 <span style="font-size: 0.9rem; color: var(--text-color);">/ 月</span></p>
+        <p class="price">¥98,000 <span style="font-size: 0.9rem; font-weight: normal; color: var(--text-color);">/ 月</span></p>
+        <p>企画から分析、問い合わせ獲得まで、SNS運用を丸ごとトータルサポートします。</p>
         <ul>
           <li>投稿作成・運用代行（制限なし）</li>
-          <li>DM・コメント対応代行</li>
+          <li>コメント・DM対応代行</li>
+          <li>詳細なデータ分析と改善提案</li>
           <li>24時間チャットサポート</li>
         </ul>
       </div>
     </div>
   </section>
 
+  <!-- コンタクトセクション -->
   <section id="contact" class="contact-section">
     <h2>Contact</h2>
+    <p>お仕事のご依頼やご相談は、以下よりお気軽にお問い合わせください。</p>
+    
     <div class="contact-card">
-      <p style="margin-bottom: 25px;">ご相談・お問い合わせは下記よりお気軽にご連絡ください。</p>
-      <a href="mailto:y.mrs.flower@gmail.com" class="btn-primary">メールで問い合わせる</a>
+      <p style="margin-bottom: 25px; font-weight: bold; color: var(--primary-color);">
+        ご相談・お問い合わせは下記のボタンから直接メールにて承っております。
+      </p>
+      <a href="mailto:y.mrs.flower@gmail.com" class="btn-primary">メールを送る</a>
+      
+      <div class="direct-email">
+        <p>または、以下のメールアドレスまで直接ご連絡ください。</p>
+        <a href="mailto:y.mrs.flower@gmail.com">y.mrs.flower@gmail.com</a>
+      </div>
     </div>
   </section>
 
+  <!-- フッター -->
   <footer>
     <p>&copy; 2026 UnPlave. All Rights Reserved.</p>
   </footer>
