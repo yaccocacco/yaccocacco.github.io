@@ -59,7 +59,7 @@
       color: var(--accent-color);
     }
 
-    /* メインビジュアル（ヒーローセクション） */
+    /* メインビジュアル */
     .hero-section {
       background: linear-gradient(135deg, rgba(26, 43, 76, 0.9) 0%, rgba(13, 23, 42, 0.95) 100%), 
                   url('watermarked_img_3214086498914084481.png') no-repeat center center/cover;
@@ -111,23 +111,25 @@
       transform: translateY(-2px);
     }
 
-    /* 共感・お悩みセクション */
-    .issues-section {
-      padding: 100px 20px;
-      background-color: var(--bg-light);
-      text-align: center;
-    }
-
-    .issues-section h2 {
+    /* セクション共通見出しスタイル */
+    section h2 {
       font-size: 2.2rem;
       color: var(--primary-color);
       margin-bottom: 15px;
+      text-align: center;
     }
 
     .section-subtitle {
       font-size: 1rem;
       color: #718096;
       margin-bottom: 50px;
+      text-align: center;
+    }
+
+    /* お悩みセクション */
+    .issues-section {
+      padding: 100px 20px;
+      background-color: var(--bg-light);
     }
 
     .issues-grid {
@@ -150,17 +152,10 @@
       color: #4A5568;
     }
 
-    /* 私たちの想い（About）セクション */
+    /* 想い（About）セクション */
     .about-section {
       padding: 100px 20px;
       background-color: var(--bg-white);
-      text-align: center;
-    }
-
-    .about-section h2 {
-      font-size: 2.2rem;
-      color: var(--primary-color);
-      margin-bottom: 40px;
     }
 
     .about-content {
@@ -182,17 +177,10 @@
       padding-bottom: 3px;
     }
 
-    /* 選ばれる理由セクション */
+    /* 選ばれる理由（強み）セクション */
     .features-section {
       padding: 100px 20px;
       background-color: var(--bg-light);
-      text-align: center;
-    }
-
-    .features-section h2 {
-      font-size: 2.2rem;
-      color: var(--primary-color);
-      margin-bottom: 50px;
     }
 
     .features-grid {
@@ -210,6 +198,7 @@
       padding: 40px 30px;
       width: 350px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+      text-align: left;
     }
 
     .feature-num {
@@ -225,17 +214,89 @@
       margin-bottom: 15px;
     }
 
+    /* サポートの流れ（Flow）セクション */
+    .flow-section {
+      padding: 100px 20px;
+      background-color: var(--bg-white);
+    }
+
+    .flow-grid {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .flow-card {
+      background-color: var(--bg-light);
+      border: 1px solid #E2E8F0;
+      border-radius: 8px;
+      padding: 30px;
+      width: 220px;
+      position: relative;
+      text-align: left;
+    }
+
+    .flow-step {
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: var(--accent-color);
+      margin-bottom: 10px;
+    }
+
+    .flow-card h3 {
+      font-size: 1.1rem;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+
+    .flow-card p {
+      font-size: 0.9rem;
+      color: #4A5568;
+    }
+
+    /* よくあるご質問（FAQ）セクション */
+    .faq-section {
+      padding: 100px 20px;
+      background-color: var(--bg-light);
+    }
+
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .faq-item {
+      background-color: var(--bg-white);
+      padding: 25px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    }
+
+    .faq-question {
+      font-weight: bold;
+      color: var(--primary-color);
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .faq-answer {
+      color: #4A5568;
+      font-size: 1rem;
+      padding-left: 28px;
+      border-left: 3px solid var(--accent-color);
+    }
+
     /* サービス紹介セクション */
     .services-section {
       padding: 100px 20px;
       background-color: var(--bg-white);
-      text-align: center;
-    }
-
-    .services-section h2 {
-      font-size: 2.2rem;
-      color: var(--primary-color);
-      margin-bottom: 50px;
     }
 
     .services-grid {
@@ -303,12 +364,6 @@
       text-align: center;
     }
 
-    .contact-section h2 {
-      font-size: 2.2rem;
-      color: var(--primary-color);
-      margin-bottom: 20px;
-    }
-
     .contact-card {
       max-width: 600px;
       margin: 40px auto 0 auto;
@@ -352,7 +407,9 @@
       <a href="#issues">お悩み</a>
       <a href="#about">想い</a>
       <a href="#features">強み</a>
+      <a href="#flow">サポートの流れ</a>
       <a href="#services">サービス</a>
+      <a href="#faq">よくある質問</a>
       <a href="#contact">お問い合わせ</a>
     </div>
   </nav>
@@ -410,11 +467,38 @@
     </div>
   </section>
 
+  <!-- サポートの流れ（Flow）セクション -->
+  <section id="flow" class="flow-section">
+    <h2>サポートの流れ</h2>
+    <p class="section-subtitle">初めての方でも安心していただけるよう、ステップを明確にしています。</p>
+    <div class="flow-grid">
+      <div class="flow-card">
+        <div class="flow-step">STEP 01</div>
+        <h3>お問い合わせ</h3>
+        <p>まずはメールにてお気軽にご相談ください。2営業日以内に折り返しご連絡いたします。</p>
+      </div>
+      <div class="flow-card">
+        <div class="flow-step">STEP 02</div>
+        <h3>無料ヒアリング</h3>
+        <p>オンラインにて、現在のお悩みやあなたのビジネスに対する大切な想いをお聞きします。</p>
+      </div>
+      <div class="flow-card">
+        <div class="flow-step">STEP 03</div>
+        <h3>プランのご提案</h3>
+        <p>ヒアリングをもとに、あなたに最適なSNS運用のロードマップとプランをご提示します。</p>
+      </div>
+      <div class="flow-card">
+        <div class="flow-step">STEP 04</div>
+        <h3>サポート開始</h3>
+        <p>ご契約後、アカウント設計や投稿作成など、いよいよ共同でSNS運用がスタートします。</p>
+      </div>
+    </div>
+  </section>
+
   <!-- サービス紹介セクション -->
   <section id="services" class="services-section">
     <h2>Services</h2>
     <div class="services-grid">
-      <!-- ライトプラン -->
       <div class="service-card">
         <h3>ライトプラン</h3>
         <p class="price">¥29,800 <span style="font-size: 0.9rem; font-weight: normal; color: var(--text-color);">/ 月</span></p>
@@ -426,7 +510,6 @@
         </ul>
       </div>
 
-      <!-- スタンダードプラン -->
       <div class="service-card">
         <h3>スタンダードプラン</h3>
         <p class="price">¥59,800 <span style="font-size: 0.9rem; font-weight: normal; color: var(--text-color);">/ 月</span></p>
@@ -439,7 +522,6 @@
         </ul>
       </div>
 
-      <!-- プレミアムプラン -->
       <div class="service-card">
         <h3>フルサポートプラン</h3>
         <p class="price">¥98,000 <span style="font-size: 0.9rem; font-weight: normal; color: var(--text-color);">/ 月</span></p>
@@ -450,6 +532,26 @@
           <li>詳細なデータ分析と改善提案</li>
           <li>24時間チャットサポート</li>
         </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- よくあるご質問（FAQ）セクション -->
+  <section id="faq" class="faq-section">
+    <h2>よくあるご質問</h2>
+    <p class="section-subtitle">事前によくいただく疑問や懸念をまとめております。</p>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question"><span>Q.</span> まったくの初期アカウントですが、サポートをお願いできますか？</div>
+        <div class="faq-answer">はい、喜んでサポートいたします。アカウントの初期設定やコンセプト設計の段階から一緒に入らせていただきますのでご安心ください。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><span>Q.</span> 途中でのプラン変更は可能ですか？</div>
+        <div class="faq-answer">はい、可能です。運用を進めていく中で「もっと投稿頻度を増やしたい」「内製化に向けてライトプランに切り替えたい」などのご要望に応じて柔軟に対応します。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><span>Q.</span> 契約期間の縛りはありますか？</div>
+        <div class="faq-answer">効果を実感していただくために最低3ヶ月からのご契約を推奨しておりますが、ご事情に合わせてご相談を承ります。</div>
       </div>
     </div>
   </section>
