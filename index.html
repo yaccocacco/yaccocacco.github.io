@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SNS運用サポート | あなたの想いを世界へ届ける</title>
-    <!-- Noto Sans JP のインポート（文字を細く見せるために 300 / 400 をメインに採用） -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@400;500&display=swap" rel="stylesheet">
     <style>
         /* ベースリセットとスタイリング */
         *, *::before, *::after {
@@ -38,7 +37,7 @@
             margin-bottom: 1.5rem;
         }
 
-        /* グローバルナビゲーション（追加） */
+        /* グローバルナビゲーション */
         .global-nav {
             background-color: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(5px);
@@ -85,12 +84,13 @@
             color: #2c3e50;
         }
 
-        /* ヒーローセクション（極薄で落ち着いたグラデーション） */
+        /* ヒーローセクション（高さを出し、薄いピンクを混ぜた落ち着いたグラデーション） */
         header {
-            background: linear-gradient(135deg, #f5f7fa 0%, #eef1f5 100%);
-            padding: 80px 24px 60px 24px;
+            /* ほんのり桜のような薄いピンクから落ち着いたペールグレーへ移るグラデーション */
+            background: linear-gradient(135deg, #fff0f2 0%, #f5f7fa 70%, #eef1f5 100%);
+            padding: 150px 24px 120px 24px; /* 高さを出すために上下の余白を大幅に広げました */
             text-align: center;
-            border-bottom: 1px solid #eaeaea;
+            border-bottom: 1px solid #f0e6e8;
         }
 
         .hero-container {
@@ -98,12 +98,15 @@
             margin: 0 auto;
         }
 
+        /* 「あなたの想いを、世界へ届ける。」のメインコピーのみ、美しいセリフ（明朝体）に変更 */
         header h1 {
-            font-size: 2rem;
-            line-height: 1.4;
-            margin-bottom: 24px;
-            letter-spacing: 0.05em;
-            color: #333333;
+            font-family: 'Noto Serif JP', 'YuMincho', 'Hiragino Mincho ProN', serif;
+            font-size: 2.2rem;
+            line-height: 1.5;
+            margin-bottom: 28px;
+            letter-spacing: 0.08em;
+            color: #2c3e50;
+            font-weight: 400; /* 明朝体の美しさを引き立てる軽めのウェイト */
         }
 
         header p.lead {
@@ -420,10 +423,10 @@
                 gap: 15px;
             }
             header {
-                padding: 60px 20px 50px 20px;
+                padding: 100px 20px 80px 20px;
             }
             header h1 {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
             }
             section {
                 padding: 50px 20px;
@@ -437,7 +440,6 @@
 </head>
 <body>
 
-    <!-- グローバルナビゲーション -->
     <nav class="global-nav">
         <div class="nav-container">
             <a href="#" class="nav-logo">SNS運用サポート</a>
@@ -451,7 +453,6 @@
         </div>
     </nav>
 
-    <!-- ヘッダー（ヒーローエリア） -->
     <header>
         <div class="hero-container">
             <h1>あなたの想いを、世界へ届ける。</h1>
@@ -464,7 +465,6 @@
         </div>
     </header>
 
-    <!-- 共感セクション -->
     <section class="empathy-section">
         <div class="empathy-container">
             <h2 class="section-title">こんなお悩みはありませんか？</h2>
@@ -492,7 +492,6 @@
         </div>
     </section>
 
-    <!-- サービス内容 -->
     <section id="services">
         <h2 class="section-title">サービス内容</h2>
         <div class="services-grid">
@@ -515,7 +514,6 @@
         </div>
     </section>
 
-    <!-- 料金プラン -->
     <section class="plans-section" id="plans">
         <div class="plans-container">
             <h2 class="section-title">料金プラン</h2>
@@ -555,7 +553,6 @@
         </div>
     </section>
 
-    <!-- 実績・お客様の声 -->
     <section id="results">
         <div class="results-container">
             <h2 class="section-title">実績・お客様の声</h2>
@@ -583,12 +580,11 @@
         </div>
     </section>
 
-    <!-- プロフィール（講師紹介） -->
     <section class="profile-section" id="profile">
         <div class="profile-container">
-            <h2 class="section-title">About Me</h2>
+            <h2 class="section-title">講師紹介</h2>
             <div class="profile-text">
-                <p>はじめまして。</p>
+                <p>はじめまして。SNS運用サポート講師の [お名前] です。</p>
                 <p>これまで数多くの個人起業家さまや企業さまのアカウント運用・コンサルティングに携わってきました。</p>
                 <p>その中で一貫して抱き続けている信念は、<strong>「SNSは、人と人とが温かく繋がる場所であるべきだ」</strong>ということです。単なるテクニックや無機質な数字を追うだけの運用は、いつか限界がきてしまいます。</p>
                 <p>あなた自身の「誰かを幸せにしたい」という純粋な原動力。その灯りを、もっと多くの人に見つけてもらえるように。あなたの想いを言葉にし、価値を形にするお手伝いを、精一杯させていただきます。</p>
@@ -597,7 +593,6 @@
         </div>
     </section>
 
-    <!-- お問い合わせ -->
     <section id="contact">
         <div class="contact-container">
             <h2 class="section-title">お問い合わせ</h2>
@@ -610,9 +605,8 @@
         </div>
     </section>
 
-    <!-- フッター -->
     <footer>
-        <p>&copy; 2026 UnPLAVE. All rights reserved.</p>
+        <p>&copy; 2026 あなたの屋号/お名前. All rights reserved.</p>
     </footer>
 
 </body>
