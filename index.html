@@ -1,1226 +1,219 @@
 <!DOCTYPE html>
-
 <html lang="ja">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>SNS運用サポート | あなたの想いを世界へ届ける</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@400;500&display=swap" rel="stylesheet">
-
-    <style>
-
-        /* ベースリセットとスタイリング */
-
-        *, *::before, *::after {
-
-            box-sizing: border-box;
-
-        }
-
-        
-
-        body {
-
-            font-family: 'Noto Sans JP', sans-serif;
-
-            margin: 0;
-
-            padding: 0;
-
-            color: #4a4a4a;
-
-            background-color: #fcfcfc;
-
-            line-height: 1.8;
-
-            -webkit-font-smoothing: antialiased;
-
-        }
-
-
-
-        /* タイポグラフィ（全体的に文字を細く見せる設定） */
-
-        h1, h2, h3, h4 {
-
-            font-weight: 500; /* 細めのウェイトで知的な印象に */
-
-            color: #2c3e50;
-
-            margin-top: 0;
-
-        }
-
-
-
-        p {
-
-            font-weight: 300; /* 本文の文字をかなり細く設定 */
-
-            color: #5a5a5a;
-
-            margin-top: 0;
-
-            margin-bottom: 1.5rem;
-
-        }
-
-
-
-        /* グローバルナビゲーション */
-
-        .global-nav {
-
-            background-color: rgba(255, 255, 255, 0.8);
-
-            backdrop-filter: blur(5px);
-
-            position: sticky;
-
-            top: 0;
-
-            z-index: 1000;
-
-            /* border-bottom: 1px solid #eaeaea; */
-
-            padding: 15px 24px;
-
-        }
-
-
-
-        .nav-container {
-
-            max-width: 960px;
-
-            margin: 0 auto;
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-        }
-
-
-
-        .nav-logo {
-
-            font-size: 1rem;
-
-            font-weight: 500;
-
-            color: #2c3e50;
-
-            text-decoration: none;
-
-            letter-spacing: 0.05em;
-
-        }
-
-
-
-        .nav-menu {
-
-            display: flex;
-
-            list-style: none;
-
-            margin: 0;
-
-            padding: 0;
-
-            gap: 20px;
-
-        }
-
-
-
-        .nav-menu a {
-
-            text-decoration: none;
-
-            color: #5a5a5a;
-
-            font-size: 0.85rem;
-
-            font-weight: 300;
-
-            transition: color 0.3s ease;
-
-        }
-
-
-
-        .nav-menu a:hover {
-
-            color: #2c3e50;
-
-        }
-
-
-
-        /* ヒーローセクション（高さを出し、薄いピンクを混ぜた落ち着いたグラデーション） */
-
-        header {
-
-            /* ほんのり桜のような薄いピンクから落ち着いたペールグレーへ移るグラデーション */
-
-            background: linear-gradient(135deg, #fff0f2 0%, #f5f7fa 70%, #eef1f5 100%);
-
-            padding: 250px 24px 220px 24px; /* 高さを出すために上下の余白を大幅に広げました */
-
-            text-align: center;
-
-            /* border-bottom: 1px solid #f0e6e8; */
-
-        }
-
-
-
-        .hero-container {
-
-            max-width: 800px;
-
-            margin: 0 auto;
-
-        }
-
-
-
-        /* 「あなたの想いを、世界へ届ける。」のメインコピーのみ、美しいセリフ（明朝体）に変更 */
-
-        header h1 {
-
-            font-family: 'Noto Serif JP', 'YuMincho', 'Hiragino Mincho ProN', serif;
-
-            font-size: 2.2rem;
-
-            line-height: 1.5;
-
-            margin-bottom: 28px;
-
-            letter-spacing: 0.08em;
-
-            color: #2c3e50;
-
-            font-weight: 400; /* 明朝体の美しさを引き立てる軽めのウェイト */
-
-        }
-
-
-
-        header p.lead {
-
-            font-size: 1.05rem;
-
-            line-height: 1.8;
-
-            margin-bottom: 40px;
-
-            color: #666666;
-
-        }
-
-
-
-        .cta-button {
-
-            display: inline-block;
-
-            padding: 14px 36px;
-
-            background-color: #6c7a89; /* 落ち着いたアッシュグレー */
-
-            color: #ffffff;
-
-            text-decoration: none;
-
-            border-radius: 4px;
-
-            font-weight: 400;
-
-            font-size: 0.95rem;
-
-            letter-spacing: 0.08em;
-
-            transition: background-color 0.3s ease, transform 0.2s ease;
-
-        }
-
-
-
-        .cta-button:hover {
-
-            background-color: #546270;
-
-            transform: translateY(-1px);
-
-        }
-
-
-
-        /* セクション共通（余白を少し詰めて、締まりのあるデザインに） */
-
-        section {
-
-            padding: 60px 24px; /* 上下の余白を狭めに調整 */
-
-            max-width: 960px;
-
-            margin: 0 auto;
-
-        }
-
-
-
-        h2.section-title {
-
-            font-size: 1.6rem;
-
-            text-align: center;
-
-            margin-bottom: 40px;
-
-            position: relative;
-
-            letter-spacing: 0.05em;
-
-            color: #333333;
-
-        }
-
-
-
-        h2.section-title::after {
-
-            content: '';
-
-            display: block;
-
-            width: 40px;
-
-            height: 1px;
-
-            background-color: #bdc3c7;
-
-            margin: 15px auto 0 auto;
-
-        }
-
-
-
-        /* 共感セクション */
-
-        .empathy-section {
-
-            background-color: #fafbfc;
-
-            border-top: 1px solid #f0f0f0;
-
-            border-bottom: 1px solid #f0f0f0;
-
-            padding: 70px 24px;
-
-        }
-
-
-
-        .empathy-container {
-
-            max-width: 720px;
-
-            margin: 0 auto;
-
-        }
-
-
-
-        .empathy-list {
-
-            margin-bottom: 35px;
-
-        }
-
-
-
-        .empathy-item {
-
-            background-color: #ffffff;
-
-            border-left: 3px solid #bdc3c7;
-
-            padding: 15px 20px;
-
-            margin-bottom: 15px;
-
-            border-radius: 0 4px 4px 0;
-
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
-
-        }
-
-
-
-        .empathy-item p {
-
-            margin: 0;
-
-            font-size: 0.95rem;
-
-            color: #555555;
-
-        }
-
-
-
-        .empathy-message {
-
-            text-align: center;
-
-            font-size: 1rem;
-
-            line-height: 1.9;
-
-            color: #444444;
-
-            margin-top: 30px;
-
-        }
-
-
-
-        .empathy-message p {
-
-            margin-bottom: 15px;
-
-        }
-
-
-
-        .empathy-message p:last-child {
-
-            margin-bottom: 0;
-
-        }
-
-
-
-        /* サービスセクション */
-
-        .services-grid {
-
-            display: grid;
-
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-
-            gap: 25px;
-
-            margin-top: 20px;
-
-        }
-
-
-
-        .service-card {
-
-            background: #ffffff;
-
-            border: 1px solid #eef1f5;
-
-            padding: 30px 24px;
-
-            border-radius: 6px;
-
-            box-shadow: 0 4px 10px rgba(0,0,0,0.01);
-
-            transition: transform 0.3s ease;
-
-        }
-
-
-
-        .service-card:hover {
-
-            transform: translateY(-2px);
-
-        }
-
-
-
-        .service-card h3 {
-
-            font-size: 1.2rem;
-
-            margin-bottom: 15px;
-
-            color: #4a5568;
-
-            border-bottom: 1px solid #f0f4f8;
-
-            padding-bottom: 10px;
-
-        }
-
-
-
-        .service-card p {
-
-            font-size: 0.9rem;
-
-            line-height: 1.7;
-
-            color: #666666;
-
-            margin-bottom: 0;
-
-        }
-
-
-
-        /* 料金プラン */
-
-        .plans-section {
-
-            background-color: #fafbfc;
-
-            border-top: 1px solid #f0f0f0;
-
-            border-bottom: 1px solid #f0f0f0;
-
-        }
-
-
-
-        .plans-grid {
-
-            display: grid;
-
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-
-            gap: 25px;
-
-            margin-top: 20px;
-
-        }
-
-
-
-        .plan-card {
-
-            background: #ffffff;
-
-            border: 1px solid #eef1f5;
-
-            padding: 35px 24px;
-
-            border-radius: 6px;
-
-            text-align: center;
-
-            box-shadow: 0 4px 10px rgba(0,0,0,0.01);
-
-        }
-
-
-
-        .plan-card h3 {
-
-            font-size: 1.25rem;
-
-            margin-bottom: 10px;
-
-            color: #333333;
-
-        }
-
-
-
-        .plan-card .price {
-
-            font-size: 1.8rem;
-
-            font-weight: 500;
-
-            color: #2c3e50;
-
-            margin-bottom: 25px;
-
-        }
-
-
-
-        .plan-card .price span {
-
-            font-size: 0.9rem;
-
-            font-weight: 300;
-
-            color: #7f8c8d;
-
-        }
-
-
-
-        .plan-card ul {
-
-            list-style: none;
-
-            padding: 0;
-
-            margin: 0;
-
-            text-align: left;
-
-        }
-
-
-
-        .plan-card ul li {
-
-            font-size: 0.9rem;
-
-            font-weight: 300;
-
-            color: #666666;
-
-            padding: 10px 0;
-
-            border-bottom: 1px solid #f5f7fa;
-
-        }
-
-
-
-        .plan-card ul li:last-child {
-
-            border-bottom: none;
-
-        }
-
-
-
-        /* 実績・お客様の声 */
-
-        .results-container {
-
-            max-width: 750px;
-
-            margin: 0 auto;
-
-        }
-
-
-
-        .results-list {
-
-            list-style: none;
-
-            padding: 0;
-
-            margin: 0 0 40px 0;
-
-        }
-
-
-
-        .results-list li {
-
-            font-size: 0.95rem;
-
-            padding: 12px 0;
-
-            border-bottom: 1px solid #f0f0f0;
-
-            font-weight: 300;
-
-            color: #555555;
-
-            display: flex;
-
-            justify-content: space-between;
-
-        }
-
-
-
-        .results-list li span.label {
-
-            font-weight: 400;
-
-            color: #333333;
-
-        }
-
-
-
-        .voice-container {
-
-            background-color: #fcfcfc;
-
-            border: 1px dashed #dcdde1;
-
-            padding: 25px;
-
-            border-radius: 6px;
-
-        }
-
-
-
-        .voice-title {
-
-            font-size: 1.05rem;
-
-            font-weight: 500;
-
-            margin-bottom: 15px;
-
-            text-align: center;
-
-            color: #4a5568;
-
-        }
-
-
-
-        .voice-item {
-
-            font-size: 0.9rem;
-
-            font-style: italic;
-
-            color: #555555;
-
-            margin-bottom: 10px;
-
-            text-align: center;
-
-        }
-
-
-
-        .voice-item:last-child {
-
-            margin-bottom: 0;
-
-        }
-
-
-
-        /* 講師紹介 */
-
-        .profile-section {
-
-            background-color: #fafbfc;
-
-            border-top: 1px solid #f0f0f0;
-
-            border-bottom: 1px solid #f0f0f0;
-
-        }
-
-
-
-        .profile-container {
-
-            max-width: 720px;
-
-            margin: 0 auto;
-
-            text-align: center;
-
-        }
-
-
-
-        .profile-text {
-
-            font-size: 0.95rem;
-
-            line-height: 1.9;
-
-            color: #555555;
-
-            text-align: left;
-
-            max-width: 600px;
-
-            margin: 0 auto;
-
-        }
-
-
-
-        .profile-text p {
-
-            margin-bottom: 20px;
-
-        }
-
-
-
-        /* お問い合わせ */
-
-        .contact-container {
-
-            max-width: 600px;
-
-            margin: 0 auto;
-
-            text-align: center;
-
-        }
-
-
-
-        .contact-container p {
-
-            font-size: 0.95rem;
-
-            margin-bottom: 30px;
-
-            color: #666666;
-
-        }
-
-
-
-        /* フッター */
-
-        footer {
-
-            background-color: #2c3e50;
-
-            color: #ffffff;
-
-            padding: 40px 24px;
-
-            text-align: center;
-
-            font-size: 0.85rem;
-
-            font-weight: 300;
-
-            letter-spacing: 0.05em;
-
-        }
-
-
-
-        footer p {
-
-            color: #bdc3c7;
-
-            margin: 0;
-
-        }
-
-
-
-        /* モバイル対応 */
-
-        @media (max-width: 768px) {
-
-            .nav-container {
-
-                flex-direction: column;
-
-                gap: 10px;
-
-            }
-
-            .nav-menu {
-
-                gap: 15px;
-
-            }
-
-            header {
-
-                padding: 100px 20px 80px 20px;
-
-            }
-
-            header h1 {
-
-                font-size: 1.8rem;
-
-            }
-
-            section {
-
-                padding: 50px 20px;
-
-            }
-
-            h2.section-title {
-
-                font-size: 1.4rem;
-
-                margin-bottom: 30px;
-
-            }
-
-        }
-
-    </style>
-
+    
+    <!-- アイコン表示用のFont Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- 【追加】外部CSSファイル（style.css）との連携 -->
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-
-
     <nav class="global-nav">
-
         <div class="nav-container">
-
-            <a href="#" class="nav-logo">UnPLAVE</a>
-
+            <a href="#" class="nav-logo">
+                <i class="fa-regular fa-lightbulb"></i>UnPLAVE
+            </a>
             <ul class="nav-menu">
-
                 <li><a href="#services">サービス</a></li>
-
                 <li><a href="#plans">料金プラン</a></li>
-
                 <li><a href="#results">実績</a></li>
-
                 <li><a href="#profile">プロフィール</a></li>
-
                 <li><a href="#contact">お問い合わせ</a></li>
-
             </ul>
-
         </div>
-
     </nav>
 
-
-
     <header>
-
         <div class="hero-container">
-
+            <!-- 揺れる可愛いライトアイコン -->
+            <div class="hero-sparkle">
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-regular fa-lightbulb"></i>
+            </div>
             <h1>あなたの想いを、世界へ届ける。</h1>
-
             <p class="lead">
-
-                SNSで、心の中に一生消えない灯りをともす。<br>
-
-                あなたの作った価値が、誰かの人生を豊かにする。<br>
-
+                SNSで、<span class="highlight-text">心の中に一生消えない灯りをともす</span>。<br>
+                あなたの作った価値が、<span class="highlight-text">誰かの人生を豊かにする</span>。<br>
                 そのための、最初の一歩を伴走します。
-
             </p>
-
-            <a href="https://timerex.net/s/y.mrs.flower_7cd2/25ca9b99" class="cta-button">まずは無料で相談する</a>
-
+            <a href="https://timerex.net/s/y.mrs.flower_7cd2/25ca9b99" class="cta-button">
+                <i class="fa-regular fa-comments" style="margin-right: 8px;"></i>まずは無料で相談する
+            </a>
         </div>
-
     </header>
 
-
-
     <section class="empathy-section">
-
         <div class="empathy-container">
-
             <h2 class="section-title">こんなお悩みはありませんか？</h2>
-
             
-
             <div class="empathy-list">
-
                 <div class="empathy-item">
-
+                    <i class="fa-solid fa-circle-question"></i>
                     <p>「素晴らしい商品やサービスがあるのに、SNSでどう届ければいいか分からない…」</p>
-
                 </div>
-
                 <div class="empathy-item">
-
+                    <i class="fa-solid fa-circle-question"></i>
                     <p>「毎日がんばって投稿しているのに、フォロワーや反応が伸びなくて焦ってしまう…」</p>
-
                 </div>
-
                 <div class="empathy-item">
-
+                    <i class="fa-solid fa-circle-question"></i>
                     <p>「テクニックばかりの運用に疲れてしまい、自分らしさを見失いそう…」</p>
-
                 </div>
-
             </div>
-
-
 
             <div class="empathy-message">
-
                 <p>SNSの数字だけを追いかける毎日は、少し息苦しいですよね。</p>
-
                 <p>私たちが大切にしているのは、単にフォロワーの数を増やすことではありません。<br>
-
                 あなたの心の中にある<strong>「誰かの役に立ちたい」「この価値を届けたい」</strong>という温かい想い（灯り）を、<br>
-
                 本当にそれを必要としている人へ届けることです。</p>
-
                 <p>あなたの作った価値が、誰かの人生をほんの少し豊かにする。<br>
-
                 そんな「血の通った、あなたらしいSNSの育て方」を、一緒に見つけていきましょう。</p>
-
             </div>
-
         </div>
-
     </section>
-
-
 
     <section id="services">
-
         <h2 class="section-title">サービス内容</h2>
-
         <div class="services-grid">
-
             <div class="service-card">
-
+                <div class="service-icon"><i class="fa-solid fa-compass"></i></div>
                 <h3>コンセプト・戦略設計</h3>
-
                 <p>あなた独自の強みや想いを言語化し、誰に・何を届けるべきか、ブレない軸となる運用ロードマップを設計します。</p>
-
             </div>
-
             <div class="service-card">
-
+                <div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
                 <h3>投稿作成サポート</h3>
-
                 <p>読者の心に深く響くライティング技術や、目を惹く画像デザイン、ハッシュタグの選定まで丁寧にアドバイスします。</p>
-
             </div>
-
             <div class="service-card">
-
+                <div class="service-icon"><i class="fa-solid fa-rocket"></i></div>
                 <h3>アカウント運用代行</h3>
-
                 <p>日々の投稿業務やエンゲージメント（いいね・コメント）を代行し、コア業務に集中できる時間を創出します。</p>
-
             </div>
-
             <div class="service-card">
-
+                <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
                 <h3>継続コンサルティング</h3>
-
                 <p>データ分析に基づいたフィードバックを毎月行い、課題の発見と次の打ち手をクリアにしながら伴走します。</p>
-
             </div>
-
         </div>
-
     </section>
-
-
 
     <section class="plans-section" id="plans">
-
         <div class="plans-container">
-
             <h2 class="section-title">料金プラン</h2>
-
             <div class="plans-grid">
-
+                
+                <!-- ライトプラン -->
                 <div class="plan-card">
-
+                    <div class="plan-card-icon"><i class="fa-solid fa-seedling"></i></div>
                     <h3>ライトプラン</h3>
-
                     <div class="price">¥29,800 <span>/ 月</span></div>
-
                     <ul>
-
-                        <li>初期アカウント設計</li>
-
-                        <li>月1回 オンラインMTG（60分）</li>
-
-                        <li>投稿添削・アドバイス（月4回）</li>
-
-                        <li>チャット質問相談（無制限）</li>
-
+                        <li><i class="fa-solid fa-check"></i>初期アカウント設計</li>
+                        <li><i class="fa-solid fa-check"></i>月1回 オンラインMTG（60分）</li>
+                        <li><i class="fa-solid fa-check"></i>投稿添削・アドバイス（月4回）</li>
+                        <li><i class="fa-solid fa-check"></i>チャット質問相談（無制限）</li>
                     </ul>
-
                 </div>
-
-                <div class="plan-card">
-
+                
+                <!-- スタンダードプラン -->
+                <div class="plan-card popular">
+                    <div class="popular-tag">一番おすすめ</div>
+                    <div class="plan-card-icon"><i class="fa-solid fa-star"></i></div>
                     <h3>スタンダードプラン</h3>
-
                     <div class="price">¥49,800 <span>/ 月</span></div>
-
                     <ul>
-
-                        <li>初期アカウント設計</li>
-
-                        <li>月2回 オンラインMTG（各60分）</li>
-
-                        <li>投稿作成サポート（週3本まで）</li>
-
-                        <li>ハッシュタグ・競合リサーチ</li>
-
-                        <li>チャット質問相談（無制限）</li>
-
+                        <li><i class="fa-solid fa-check"></i>初期アカウント設計</li>
+                        <li><i class="fa-solid fa-check"></i>月2回 オンラインMTG（各60分）</li>
+                        <li><i class="fa-solid fa-check"></i>投稿作成サポート（週3本まで）</li>
+                        <li><i class="fa-solid fa-check"></i>ハッシュタグ・競合リサーチ</li>
+                        <li><i class="fa-solid fa-check"></i>チャット質問相談（無制限）</li>
                     </ul>
-
                 </div>
-
+                
+                <!-- プロプラン -->
                 <div class="plan-card">
-
+                    <div class="plan-card-icon"><i class="fa-solid fa-crown"></i></div>
                     <h3>プロプラン</h3>
-
                     <div class="price">¥98,000〜 <span>/ 月</span></div>
-
                     <ul>
-
-                        <li>アカウント完全運用代行</li>
-
-                        <li>週1回 進捗MTG / 分析レポーティング</li>
-
-                        <li>企画・画像作成・投稿・分析すべてコミコミ</li>
-
-                        <li>優先チャットサポート</li>
-
+                        <li><i class="fa-solid fa-check"></i>アカウント完全運用代行</li>
+                        <li><i class="fa-solid fa-check"></i>週1回 進捗MTG / レポーティング</li>
+                        <li><i class="fa-solid fa-check"></i>企画・画像・投稿・分析すべて込</li>
+                        <li><i class="fa-solid fa-check"></i>優先チャットサポート</li>
                     </ul>
-
                 </div>
-
+                
             </div>
-
         </div>
-
     </section>
-
-
 
     <section id="results">
-
         <div class="results-container">
-
             <h2 class="section-title">実績・お客様の声</h2>
-
             <ul class="results-list">
-
                 <li>
-
-                    <span class="label">A社様（ライフスタイルブランド）</span>
-
+                    <span class="label"><i class="fa-solid fa-trophy"></i>A社様（ライフスタイルブランド）</span>
                     <span>開始3ヶ月でフォロワー 1,000人 ⇒ 5,000人達成</span>
-
                 </li>
-
                 <li>
-
-                    <span class="label">B様（個人起業家）</span>
-
+                    <span class="label"><i class="fa-solid fa-chart-line"></i>B様（個人起業家）</span>
                     <span>投稿のエンゲージメント率が平均 2% ⇒ 8% へ大幅向上</span>
-
                 </li>
-
                 <li>
-
-                    <span class="label">C社様（地域工務店）</span>
-
+                    <span class="label"><i class="fa-solid fa-house"></i>C社様（地域工務店）</span>
                     <span>SNS経由の月間お問い合わせ数が 0件 ⇒ 10件へ安定化</span>
-
                 </li>
-
             </ul>
 
-
-
             <div class="voice-container">
-
-                <div class="voice-title">ー 嬉しいお声をいただいています ー</div>
-
+                <div class="voice-title"><i class="fa-regular fa-heart"></i> ー 嬉しいお声をいただいています ー</div>
                 <div class="voice-item">「私のざっくりとした想いを、本当に素敵な言葉にして紡いでくれました。」</div>
-
                 <div class="voice-item">「フォロワーの数字に追われて疲れていた心が、すごく軽くなりました！」</div>
-
                 <div class="voice-item">「ただの作業代行ではなく、いつも心に寄り添って伴走してくれる最高のパートナーです。」</div>
-
             </div>
-
         </div>
-
     </section>
-
-
 
     <section class="profile-section" id="profile">
-
         <div class="profile-container">
-
+            <div class="profile-icon"><i class="fa-regular fa-star"></i></div>
             <h2 class="section-title">自己紹介</h2>
-
             <div class="profile-text">
-
                 <p>はじめまして。</p>
-
                 <p>これまで数多くの個人起業家さまや企業さまのアカウント運用・コンサルティングに携わってきました。</p>
-
                 <p>その中で一貫して抱き続けている信念は、<strong>「SNSは、人と人とが温かく繋がる場所であるべきだ」</strong>ということです。単なるテクニックや無機質な数字を追うだけの運用は、いつか限界がきてしまいます。</p>
-
                 <p>あなた自身の「誰かを幸せにしたい」という純粋な原動力。その灯りを、もっと多くの人に見つけてもらえるように。あなたの想いを言葉にし、価値を形にするお手伝いを、精一杯させていただきます。</p>
-
                 <p>どんな小さな不安でも、お気軽にお聞かせください。一緒に歩んでいきましょう。</p>
-
             </div>
-
         </div>
-
     </section>
-
-
 
     <section id="contact">
-
         <div class="contact-container">
-
             <h2 class="section-title">お問い合わせ</h2>
-
             <p>
-
                 「何から相談していいか分からない」という方も大歓迎です。<br>
-
                 現在、30分間の無料オンライン個別相談を実施しています。<br>
-
                 以下のリンクより、お気軽にお問い合わせください。
-
             </p>
-
-            <a href="https://timerex.net/s/y.mrs.flower_7cd2/25ca9b99" class="cta-button">無料相談に申し込む</a>
-
+            <a href="https://timerex.net/s/y.mrs.flower_7cd2/25ca9b99" class="cta-button">
+                <i class="fa-regular fa-paper-plane" style="margin-right: 8px;"></i>無料相談に申し込む
+            </a>
         </div>
-
     </section>
 
-
-
     <footer>
-
         <p>&copy; 2026 UnPLAVE. All rights reserved.</p>
-
     </footer>
 
-
-
 </body>
-
-</html> 
-
+</html>
