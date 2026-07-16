@@ -58,7 +58,7 @@ p {
 }
 
 .nav-logo i {
-    color: #e1306c;
+    color: #e1306c; /* ロゴに温かいピンク */
 }
 
 .nav-menu {
@@ -81,11 +81,12 @@ p {
     color: #e1306c;
 }
 
-/* ヒーローセクション（動くグラデーション） */
-header {
+/* ヒーローセクション（動きのある美しいグラデーション） */
+.hero-section {
+    /* Instagramの美しい朝焼けをイメージしたスタイリッシュな色調 */
     background: linear-gradient(135deg, #fdf0cd 0%, #ffdfec 30%, #ffd3d3 50%, #f1e2ff 75%, #e6f0fa 100%);
     background-size: 400% 400%;
-    animation: gradientMotion 16s ease infinite;
+    animation: gradientMotion 16s ease infinite; /* 16秒かけてなめらかに変化 */
     padding: 220px 24px 180px 24px;
     text-align: center;
     position: relative;
@@ -105,6 +106,9 @@ header {
     -webkit-text-fill-color: transparent;
     margin-bottom: 25px;
     animation: float 3s ease-in-out infinite;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
 }
 
 @keyframes float {
@@ -117,7 +121,7 @@ header {
     margin: 0 auto;
 }
 
-header h1 {
+.hero-section h1 {
     font-family: 'Noto Serif JP', 'YuMincho', 'Hiragino Mincho ProN', serif;
     font-size: 2.2rem;
     line-height: 1.6;
@@ -127,7 +131,7 @@ header h1 {
     font-weight: 400;
 }
 
-/* メインコピーの大切な部分にピンクグラデーション */
+/* メインコピーの大切なメッセージにピンクグラデーション */
 .highlight-text {
     background: linear-gradient(45deg, #e6683c, #cc2366);
     -webkit-background-clip: text;
@@ -135,14 +139,14 @@ header h1 {
     font-weight: 500;
 }
 
-header p.lead {
+.hero-section p.lead {
     font-size: 1.05rem;
     line-height: 2;
     margin-bottom: 40px;
     color: #555555;
 }
 
-/* 魅力的なCTAボタン */
+/* 魅力的なCTAボタン（ホバー時にピンクが際立ちます） */
 .cta-button {
     display: inline-block;
     padding: 15px 40px;
@@ -209,7 +213,7 @@ h2.section-title::after {
 
 .empathy-item {
     background-color: #ffffff;
-    border-left: 3px solid #cc2366;
+    border-left: 3px solid #cc2366; /* 左端にピンクの差し色ライン */
     padding: 15px 20px;
     margin-bottom: 15px;
     border-radius: 0 8px 8px 0;
@@ -242,10 +246,6 @@ h2.section-title::after {
     margin-bottom: 15px;
 }
 
-.empathy-message p:last-child {
-    margin-bottom: 0;
-}
-
 /* サービスセクション */
 .services-grid {
     display: grid;
@@ -269,6 +269,7 @@ h2.section-title::after {
     box-shadow: 0 8px 25px rgba(225, 48, 108, 0.08);
 }
 
+/* アイコンにInstagramグラデーションをブレンド */
 .service-icon {
     font-size: 2.2rem;
     background: linear-gradient(135deg, #f09433, #e6683c, #cc2366);
@@ -323,6 +324,7 @@ h2.section-title::after {
     position: relative;
 }
 
+/* 人気プラン（スタンダード）を上品なピンク枠で強調 */
 .plan-card.popular {
     border: 2px solid #cc2366;
     box-shadow: 0 8px 30px rgba(204, 35, 102, 0.08);
@@ -395,10 +397,6 @@ h2.section-title::after {
     font-size: 0.85rem;
 }
 
-.plan-card ul li:last-child {
-    border-bottom: none;
-}
-
 /* 実績・お客様の声 */
 .results-container {
     max-width: 750px;
@@ -435,7 +433,7 @@ h2.section-title::after {
 }
 
 .voice-container {
-    background-color: #fffafb;
+    background-color: #fffafb; /* ほんのりピンクがかった背景 */
     border: 1px dashed #f5c2d1;
     padding: 30px;
     border-radius: 12px;
@@ -460,10 +458,6 @@ h2.section-title::after {
     margin-bottom: 15px;
     text-align: center;
     line-height: 1.8;
-}
-
-.voice-item:last-child {
-    margin-bottom: 0;
 }
 
 /* 講師紹介 */
@@ -538,14 +532,14 @@ footer p {
     .nav-menu {
         gap: 15px;
     }
-    header {
+    .hero-section {
         padding: 150px 20px 120px 20px;
     }
-    header h1 {
+    .hero-section h1 {
         font-size: 1.6rem;
         line-height: 1.5;
     }
-    header p.lead {
+    .hero-section p.lead {
         font-size: 0.95rem;
     }
     section {
@@ -557,8 +551,5 @@ footer p {
     }
     .plan-card.popular {
         transform: scale(1);
-    }
-    .plan-card.popular:hover {
-        transform: translateY(-4px);
     }
 }
